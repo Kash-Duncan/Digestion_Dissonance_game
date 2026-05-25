@@ -1,15 +1,22 @@
 extends CharacterBody2D
 
 @onready var jump_timer = $jump_timer
+@onready var Stand_shape = $Standing_Shape
+@onready var Crouch_shape = $Crouch_Shape
 
 const SPEED = 250.0
 const JUMP_VELOCITY = -350.0
+const DASH_VELOCITY = 350
 
 var can_jump = true
 var is_crouching = false
 
+
 func _process(delta: float) -> void:
-	print(is_crouching)
+	pass
+#Get dirction
+func Dash():
+	velocity.x = 1
 
 func Jump():
 	velocity.y = JUMP_VELOCITY
@@ -24,12 +31,16 @@ func Crouch():
 	if is_crouching:
 		return
 	is_crouching = true
+	Stand_shape.disabled = true
+	Crouch_shape.disabled = false
 
 func Stand():
 	if is_crouching == false:
 		return
-	is_crouching == false
-
+	is_crouching = false
+	Crouch_shape.disabled = true
+	Stand_shape.disabled = false
+	
 func _on_jump_timer_timeout() -> void:
 	can_jump = false
 	Jump_cut()
