@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var jump_timer = $jump_timer
 @onready var Stand_shape = $Standing_Shape
 @onready var Crouch_shape = $Crouch_Shape
+@onready var Disable_Jump_Timer = $Disable_Jump_Timer
 
 const SPEED = 250.0
 const JUMP_VELOCITY = -350.0
@@ -11,28 +12,36 @@ const DASH_VELOCITY = 350
 var can_jump = true
 var is_crouching = false
 
-
 func _process(delta: float) -> void:
 	pass
 #Get dirction
 func Dash():
-	velocity.x = 1
+	var direction_1 := Input.get_axis("ui_left", "ui_right")
+	velocity.x = direction_1 * DASH_VELOCITY
 
 func Jump():
-	velocity.y = JUMP_VELOCITY
- 
+	if is_crouching == false:
+		velocity.y = JUMP_VELOCITY
+	else:
+		Disable_Jump_Timer.start()
+		Stand_shape.disabled = false
+		is_crouching = false
+		Crouch_shape.disabled = true
+
 func Jump_cut():
-	if velocity.y < 150:
-		velocity.y = 150
+	#faster fall
+	if velocity.y < -150 and velocity.y > -50:
+		velocity.y = 250
 		can_jump = false
 		jump_timer.stop()
 
 func Crouch():
-	if is_crouching:
-		return
-	is_crouching = true
-	Stand_shape.disabled = true
-	Crouch_shape.disabled = false
+	if is_on_floor():
+		if is_crouching:
+			return
+		is_crouching = true
+		Stand_shape.disabled = true
+		Crouch_shape.disabled = false
 
 func Stand():
 	if is_crouching == false:
@@ -48,13 +57,17 @@ func _on_jump_timer_timeout() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if velocity.y > -50:
+			velocity += get_gravity() * 2.5 * delta
+		else:
+			velocity += get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_pressed("Jump") and can_jump == true:
-		if jump_timer.is_stopped():
-			jump_timer.start()
-		Jump()
+		if Disable_Jump_Timer.is_stopped():
+			if jump_timer.is_stopped():
+				jump_timer.start()
+			Jump()
 	#Handle Jump Cut
 	if Input.is_action_just_released("Jump"):
 		Jump_cut()
@@ -71,8 +84,11 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Crouch"):
 		Crouch()
-	#Standing doesnt work
+	
 	if Input.is_action_just_pressed("Stand"):
 		Stand()
-		
+	#Dash doesnt work uses space
+	if Input.is_action_just_pressed("Dash"):
+		Dash()
+	
 	move_and_slide()
