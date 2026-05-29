@@ -4,10 +4,14 @@ extends CharacterBody2D
 @onready var Stand_shape = $Standing_Shape
 @onready var Crouch_shape = $Crouch_Shape
 @onready var Disable_Jump_Timer = $Disable_Jump_Timer
+@onready var Gravity_cancel_timer = $Gravity_Cancel_timer
 
-const SPEED = 250.0
+const orignal_speed = 250.0
+var SPEED = 250.0
 const JUMP_VELOCITY = -350.0
-const DASH_VELOCITY = 350
+const DASH_SPEED = 3.5
+const DASH_HEIGHT = -250
+var test = randi_range(-250,-300)
 
 var can_jump = true
 var is_crouching = false
@@ -17,19 +21,21 @@ func _process(delta: float) -> void:
 #Get dirction
 func Dash():
 	var direction_1 := Input.get_axis("ui_left", "ui_right")
-	velocity.x = direction_1 * DASH_VELOCITY
-
+	if Input.is_action_pressed("Crouch"):
+		Gravity_cancel_timer.start()
+		SPEED *= DASH_SPEED
+		velocity.y = test
+	
 func Jump():
 	if is_crouching == false:
 		velocity.y = JUMP_VELOCITY
-	else:
+	elif not Input.is_action_pressed("Crouch"):
 		Disable_Jump_Timer.start()
 		Stand_shape.disabled = false
 		is_crouching = false
 		Crouch_shape.disabled = true
 
 func Jump_cut():
-	#faster fall
 	if velocity.y < -150 and velocity.y > -50:
 		velocity.y = 250
 		can_jump = false
@@ -76,19 +82,26 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+	#when moving it cancels this
+	elif not is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, 10)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+	
 	if is_on_floor():
 		can_jump = true
 	
-	if Input.is_action_just_pressed("Crouch"):
+	if Input.is_action_pressed("Crouch"):
 		Crouch()
 	
 	if Input.is_action_just_pressed("Stand"):
 		Stand()
 	#Dash doesnt work uses space
-	if Input.is_action_just_pressed("Dash"):
+	if Input.is_action_just_pressed("Jump") and Gravity_cancel_timer.is_stopped() and is_on_floor():
 		Dash()
 	
 	move_and_slide()
+
+
+func _on_gravity_cancel_timer_timeout() -> void:
+	SPEED = orignal_speed

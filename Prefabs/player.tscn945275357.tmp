@@ -30,14 +30,11 @@ wait_time = 0.135
 one_shot = true
 
 [node name="Disable_Jump_Timer" type="Timer" parent="." unique_id=1473236797]
-wait_time = 0.35
+wait_time = 0.75
 one_shot = true
 
 [node name="Gravity_Cancel_timer" type="Timer" parent="." unique_id=1103346933]
 process_callback = 0
-wait_time = 0.25
-one_shot = true
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Disable_Jump_Timer" to="." method="_on_disable_jump_timer_timeout"]
-[connection signal="timeout" from="Gravity_Cancel_timer" to="." method="_on_gravity_cancel_timer_timeout"]
