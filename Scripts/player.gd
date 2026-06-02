@@ -6,13 +6,15 @@ extends CharacterBody2D
 @onready var Disable_Jump_Timer = $Disable_Jump_Timer
 @onready var Gravity_cancel_timer = $Gravity_Cancel_timer
 @onready var crouch_checker = $Crouch_ShapeCast2D
+@onready var digestion_timer = $"../digestion_timer"
+@onready var text_test = $Label
 
 const orignal_speed = 300.0
 var SPEED = 300.0
 const JUMP_VELOCITY = -350.0
-const DASH_SPEED = 900
+const DASH_SPEED = 950
 const MAX_charge_time = 1.0
-const DASH_duration = 0.3
+const DASH_duration = 0.35
 const ground_accel = 4000.0
 const air_accel = 1500.0
 
@@ -26,8 +28,9 @@ var dash_dir := Vector2.ZERO
 var can_jump = true
 var is_crouching = false
 
-func _process(delta: float) -> void:
-	pass
+func _ready() -> void:
+	#doesnt work
+	text_test = str(digestion_timer)
 
 
 func Jump():
@@ -132,7 +135,7 @@ func start_dash():
 		dash_dir = Vector2(input_d, 0).normalized()
 	else:
 		#RIGHT means default dashing will be right
-		dash_dir = Vector2.RIGHT
+		dash_dir = Vector2.UP
 	
 	var charge_percent = charge_time / MAX_charge_time
 	var final_force = DASH_SPEED * lerp(0.5, 1.0, charge_percent)
@@ -153,6 +156,9 @@ func execute_dash(delta: float):
 		velocity.x = move_toward(velocity.x, 0, SPEED * 70 * delta)
 	move_and_slide()
 
+
+func end_screen():
+	get_tree().change_scene_to_file("res://Scenes/end_scene.tscn")
 
 func _on_gravity_cancel_timer_timeout() -> void:
 	SPEED = orignal_speed

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cpyk0m5ubl0ft"]
 
+[ext_resource type="Script" uid="uid://cblcr66ssdujg" path="res://Scenes/end_scene.gd" id="1_5pkqa"]
+
 [node name="end_scene" type="Node2D" unique_id=2100215951]
+script = ExtResource("1_5pkqa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=198229343]
 
@@ -11,3 +14,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.7882353, 1, 1)
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1919607998]
+offset_left = 397.0
+offset_top = 288.0
+offset_right = 728.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
