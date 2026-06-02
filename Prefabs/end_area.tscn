@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://btspwddgpdodd"]
+
+[ext_resource type="Script" uid="uid://dc8jcpc4msrec" path="res://Prefabs/end_area.gd" id="1_bm0ht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ienk"]
+size = Vector2(40, 40)
+
+[node name="end_area" type="Area2D" unique_id=1815713352]
+script = ExtResource("1_bm0ht")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=574734764]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=96638024]
+shape = SubResource("RectangleShape2D_6ienk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

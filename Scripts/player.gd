@@ -5,15 +5,16 @@ extends CharacterBody2D
 @onready var Crouch_shape = $Crouch_Shape
 @onready var Disable_Jump_Timer = $Disable_Jump_Timer
 @onready var Gravity_cancel_timer = $Gravity_Cancel_timer
+@onready var crouch_checker = $Crouch_ShapeCast2D
 
-const orignal_speed = 250.0
-var SPEED = 250.0
+const orignal_speed = 300.0
+var SPEED = 300.0
 const JUMP_VELOCITY = -350.0
-const DASH_SPEED = 800
+const DASH_SPEED = 900
 const MAX_charge_time = 1.0
-const DASH_duration = 0.2
-const ground_accel = 1800.0
-const air_accel = 700.0
+const DASH_duration = 0.3
+const ground_accel = 4000.0
+const air_accel = 1500.0
 
 var DASH_HEIGHT = randi_range(-250,-300)
 var is_charging := false
@@ -32,7 +33,7 @@ func _process(delta: float) -> void:
 func Jump():
 	if is_crouching == false:
 		velocity.y = JUMP_VELOCITY
-	elif not Input.is_action_pressed("Crouch"):
+	elif not Input.is_action_pressed("Crouch") and not crouch_checker.is_colliding():
 		Disable_Jump_Timer.start()
 		Stand_shape.disabled = false
 		is_crouching = false
@@ -117,7 +118,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Crouch"):
 		Crouch()
 	
-	if Input.is_action_just_pressed("Stand"):
+	if Input.is_action_just_pressed("Stand") and not crouch_checker.is_colliding():
 		Stand()
 	
 	move_and_slide()
@@ -137,7 +138,7 @@ func start_dash():
 	var final_force = DASH_SPEED * lerp(0.5, 1.0, charge_percent)
 	
 	velocity.x = dash_dir.x * final_force
-	velocity.y = -220.0
+	velocity.y = -400.0
 	charge_time = 0.0
 	
 func execute_dash(delta: float):
@@ -149,7 +150,7 @@ func execute_dash(delta: float):
 	
 	if dash_timer <= 0:
 		is_dashing = false
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED * 70 * delta)
 	move_and_slide()
 
 
