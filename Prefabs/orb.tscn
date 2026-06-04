@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cp0yqeeef0sdp"]
+
+[ext_resource type="Texture2D" uid="uid://wgwykaommi86" path="res://Textures/Tile_Map_1.png" id="1_85ob8"]
+[ext_resource type="Script" uid="uid://cslhvhi6f1brc" path="res://Prefabs/orb.gd" id="1_xurj8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xurj8"]
+radius = 32.01562
+
+[node name="Orb" type="Area2D" unique_id=892474865]
+script = ExtResource("1_xurj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1766135849]
+texture = ExtResource("1_85ob8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298569420]
+shape = SubResource("CircleShape2D_xurj8")

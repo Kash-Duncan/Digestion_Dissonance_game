@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtcmquvdrcjk2" path="res://Scenes/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://ddt8nvk7mvl1p" path="res://Prefabs/player.tscn" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://cyf4h8st3c0g4" path="res://Textures/Digestion_tilemap_finished.png" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://dt8uv8hxjyw88" path="res://Prefabs/enemy.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://btspwddgpdodd" path="res://Prefabs/end_area.tscn" id="5_wowpa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
@@ -397,7 +398,7 @@ sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 script = ExtResource("1_3dryh")
 
 [node name="player" parent="." unique_id=379537739 instance=ExtResource("1_qxrlw")]
-position = Vector2(-456, -68)
+position = Vector2(-607, -38)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=846166200]
 position = Vector2(1, -2)
@@ -407,9 +408,5 @@ tile_set = SubResource("TileSet_3dryh")
 [node name="end_area" parent="." unique_id=1815713352 instance=ExtResource("5_wowpa")]
 position = Vector2(-752, -42)
 
-[node name="digestion_timer" type="Timer" parent="." unique_id=391932425]
-wait_time = 60.0
-one_shot = true
-autostart = true
-
-[connection signal="timeout" from="digestion_timer" to="." method="_on_digestion_timer_timeout"]
+[node name="enemy" parent="." unique_id=1712363071 instance=ExtResource("5_i6g32")]
+position = Vector2(1024, -64)

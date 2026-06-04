@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var Disable_Jump_Timer = $Disable_Jump_Timer
 @onready var Gravity_cancel_timer = $Gravity_Cancel_timer
 @onready var crouch_checker = $Crouch_ShapeCast2D
-@onready var digestion_timer = $"../digestion_timer"
-@onready var text_test = $Label
+@onready var hurtbox_collision = $hurtbox/hurtbox_collision
+@onready var attack_timer = $attack_timer
 
 const orignal_speed = 300.0
 var SPEED = 300.0
@@ -28,10 +28,7 @@ var dash_dir := Vector2.ZERO
 var can_jump = true
 var is_crouching = false
 
-func _ready() -> void:
-	#doesnt work
-	text_test = str(digestion_timer)
-
+var start_position = Vector2(-607.0,-38.0)
 
 func Jump():
 	if is_crouching == false:
@@ -63,6 +60,14 @@ func Stand():
 	Crouch_shape.disabled = true
 	Stand_shape.disabled = false
 	
+func attack():
+	var input_d = Input.get_axis("ui_left","ui_right")
+	attack_timer.start()
+	if input_d != 0:
+		hurtbox_collision.disabled = false
+	else:
+		hurtbox_collision.disabled = false
+
 func _on_jump_timer_timeout() -> void:
 	can_jump = false
 	Jump_cut()
@@ -124,6 +129,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Stand") and not crouch_checker.is_colliding():
 		Stand()
 	
+	if Input.is_action_just_pressed("Attack"):
+		attack()
+	
 	move_and_slide()
 
 func start_dash():
@@ -160,5 +168,12 @@ func execute_dash(delta: float):
 func end_screen():
 	get_tree().change_scene_to_file("res://Scenes/end_scene.tscn")
 
+func take_damage():
+	position = start_position
+
 func _on_gravity_cancel_timer_timeout() -> void:
 	SPEED = orignal_speed
+
+
+func _on_attack_timer_timeout() -> void:
+	hurtbox_collision.disabled = true

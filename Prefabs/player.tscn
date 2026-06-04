@@ -4,8 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://ckr3e7otcemu2" path="res://Textures/Player-4.png.png" id="1_v0iea"]
 [ext_resource type="Shape2D" uid="uid://cggsglrrkcgyx" path="res://Shapes/Player_Shape.tres" id="3_2nftw"]
 [ext_resource type="Shape2D" uid="uid://b2ebsvciodom2" path="res://Shapes/crouch_play_shape.tres" id="4_knrd4"]
+[ext_resource type="Script" uid="uid://c3lftp7eknkeh" path="res://Prefabs/hurtbox.gd" id="5_knrd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nftw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nftw"]
+radius = 16.0
+height = 48.0
 
 [node name="player" type="CharacterBody2D" unique_id=379537739]
 script = ExtResource("1_5wxv7")
@@ -39,22 +44,26 @@ process_callback = 0
 wait_time = 0.25
 one_shot = true
 
+[node name="attack_timer" type="Timer" parent="." unique_id=1851154074]
+wait_time = 0.2
+
 [node name="Crouch_ShapeCast2D" type="ShapeCast2D" parent="." unique_id=639946357]
 position = Vector2(12.75, 4)
 shape = SubResource("RectangleShape2D_2nftw")
 target_position = Vector2(-27.75, 0)
-collide_with_areas = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1528750136]
 texture = ExtResource("1_v0iea")
 
-[node name="Label" type="Label" parent="." unique_id=1690370383]
-offset_left = -24.0
-offset_top = -48.0
-offset_right = 24.0
-offset_bottom = -25.0
-text = "10"
+[node name="hurtbox" type="Area2D" parent="." unique_id=657009468]
+script = ExtResource("5_knrd4")
+
+[node name="hurtbox_collision" type="CollisionShape2D" parent="hurtbox" unique_id=1217012105]
+position = Vector2(24, 8)
+shape = SubResource("CapsuleShape2D_2nftw")
+disabled = true
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Disable_Jump_Timer" to="." method="_on_disable_jump_timer_timeout"]
 [connection signal="timeout" from="Gravity_Cancel_timer" to="." method="_on_gravity_cancel_timer_timeout"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
