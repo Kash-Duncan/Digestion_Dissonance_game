@@ -7,7 +7,9 @@ extends CharacterBody2D
 @onready var Gravity_cancel_timer = $Gravity_Cancel_timer
 @onready var crouch_checker = $Crouch_ShapeCast2D
 @onready var hurtbox_collision = $hurtbox/hurtbox_collision
+@onready var pickup_collision = $pickup_box/CollisionShape2D
 @onready var attack_timer = $attack_timer
+@onready var pickup_timer = $pickup_timer
 
 const orignal_speed = 300.0
 var SPEED = 300.0
@@ -67,6 +69,10 @@ func attack():
 		hurtbox_collision.disabled = false
 	else:
 		hurtbox_collision.disabled = false
+
+func digest():
+	pickup_timer.start()
+	pickup_collision.disabled = false
 
 func _on_jump_timer_timeout() -> void:
 	can_jump = false
@@ -132,6 +138,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Attack"):
 		attack()
 	
+	if Input.is_action_pressed("Digest"):
+		digest()
+	
 	move_and_slide()
 
 func start_dash():
@@ -174,6 +183,8 @@ func take_damage():
 func _on_gravity_cancel_timer_timeout() -> void:
 	SPEED = orignal_speed
 
-
 func _on_attack_timer_timeout() -> void:
 	hurtbox_collision.disabled = true
+
+func _on_pickup_timer_timeout() -> void:
+	pickup_collision.disabled = true

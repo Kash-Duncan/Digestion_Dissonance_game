@@ -5,12 +5,16 @@
 [ext_resource type="Shape2D" uid="uid://cggsglrrkcgyx" path="res://Shapes/Player_Shape.tres" id="3_2nftw"]
 [ext_resource type="Shape2D" uid="uid://b2ebsvciodom2" path="res://Shapes/crouch_play_shape.tres" id="4_knrd4"]
 [ext_resource type="Script" uid="uid://c3lftp7eknkeh" path="res://Prefabs/hurtbox.gd" id="5_knrd4"]
+[ext_resource type="Script" uid="uid://dc4883vbgdvvn" path="res://Prefabs/pickup_box.gd" id="6_hck1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nftw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nftw"]
 radius = 16.0
 height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knrd4"]
+radius = 56.0
 
 [node name="player" type="CharacterBody2D" unique_id=379537739]
 script = ExtResource("1_5wxv7")
@@ -47,6 +51,9 @@ one_shot = true
 [node name="attack_timer" type="Timer" parent="." unique_id=1851154074]
 wait_time = 0.2
 
+[node name="pickup_timer" type="Timer" parent="." unique_id=327171977]
+wait_time = 0.5
+
 [node name="Crouch_ShapeCast2D" type="ShapeCast2D" parent="." unique_id=639946357]
 position = Vector2(12.75, 4)
 shape = SubResource("RectangleShape2D_2nftw")
@@ -63,7 +70,15 @@ position = Vector2(24, 8)
 shape = SubResource("CapsuleShape2D_2nftw")
 disabled = true
 
+[node name="pickup_box" type="Area2D" parent="." unique_id=578209793]
+script = ExtResource("6_hck1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_box" unique_id=590396831]
+shape = SubResource("CircleShape2D_knrd4")
+disabled = true
+
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Disable_Jump_Timer" to="." method="_on_disable_jump_timer_timeout"]
 [connection signal="timeout" from="Gravity_Cancel_timer" to="." method="_on_gravity_cancel_timer_timeout"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="pickup_timer" to="." method="_on_pickup_timer_timeout"]
