@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://ca8j5xhg8o6a5"]
+
+[ext_resource type="FontFile" uid="uid://d3hbsgyamr0vf" path="res://Textures/Fonts/MegamaxJonathanToo-YqOq2.ttf" id="1_oi1a4"]
+
+[resource]
+default_font = ExtResource("1_oi1a4")
+default_font_size = 32

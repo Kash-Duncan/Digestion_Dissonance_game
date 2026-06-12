@@ -15,6 +15,10 @@ run/main_scene="uid://dcgymubfg3aet"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Textures/icon.svg"
 
+[autoload]
+
+Event_Bus="*uid://c4iwmjasddvsk"
+
 [display]
 
 window/stretch/mode="viewport"

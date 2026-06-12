@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cyf4h8st3c0g4" path="res://Textures/Digestion_tilemap_finished.png" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dt8uv8hxjyw88" path="res://Prefabs/enemy.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://btspwddgpdodd" path="res://Prefabs/end_area.tscn" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://7y8y764e5sw2" path="res://Scenes/ui.gd" id="6_i6g32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_qxrlw")
@@ -406,7 +407,25 @@ tile_map_data = PackedByteArray("AAARAAYAAAABAAIAAAARAAUAAAABAAEAAAARAAQAAAABAAE
 tile_set = SubResource("TileSet_3dryh")
 
 [node name="end_area" parent="." unique_id=1815713352 instance=ExtResource("5_wowpa")]
-position = Vector2(-752, -42)
+position = Vector2(-1016, -56)
 
 [node name="enemy" parent="." unique_id=1712363071 instance=ExtResource("5_i6g32")]
 position = Vector2(1024, -64)
+
+[node name="enemy2" parent="." unique_id=1253126018 instance=ExtResource("5_i6g32")]
+position = Vector2(-456, -64)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1206410273]
+script = ExtResource("6_i6g32")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=401083581]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Score: 0"
+
+[node name="digestion_timer" type="Timer" parent="." unique_id=428346715]

@@ -10,8 +10,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nftw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nftw"]
-radius = 16.0
-height = 48.0
+radius = 24.0
+height = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_knrd4"]
 radius = 56.0
