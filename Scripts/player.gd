@@ -178,7 +178,7 @@ func end_screen():
 	get_tree().change_scene_to_file("res://Scenes/end_scene.tscn")
 
 func take_damage():
-	position = start_position
+	position -= Vector2(100,0)
 
 func _on_gravity_cancel_timer_timeout() -> void:
 	SPEED = orignal_speed

@@ -407,13 +407,10 @@ tile_map_data = PackedByteArray("AAARAAYAAAABAAIAAAARAAUAAAABAAEAAAARAAQAAAABAAE
 tile_set = SubResource("TileSet_3dryh")
 
 [node name="end_area" parent="." unique_id=1815713352 instance=ExtResource("5_wowpa")]
-position = Vector2(-1016, -56)
+position = Vector2(1792, -40)
 
 [node name="enemy" parent="." unique_id=1712363071 instance=ExtResource("5_i6g32")]
 position = Vector2(1024, -64)
-
-[node name="enemy2" parent="." unique_id=1253126018 instance=ExtResource("5_i6g32")]
-position = Vector2(-456, -64)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1206410273]
 script = ExtResource("6_i6g32")
@@ -428,4 +425,14 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Score: 0"
 
-[node name="digestion_timer" type="Timer" parent="." unique_id=428346715]
+[node name="Digestion_Timer" type="Label" parent="CanvasLayer" unique_id=111885980]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Time: 0"
+
+[node name="digestion_timer" type="Timer" parent="CanvasLayer" unique_id=428346715]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CanvasLayer/digestion_timer" to="." method="_on_digestion_timer_timeout"]
