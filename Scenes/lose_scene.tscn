@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dvl740n4slysw"]
+
+[ext_resource type="Theme" uid="uid://ca8j5xhg8o6a5" path="res://Themes/Pixel_theme.tres" id="1_bjqob"]
+[ext_resource type="Script" uid="uid://ck47lg2wtjch3" path="res://Scripts/lose_scene.gd" id="1_gl6ei"]
+
+[node name="lose_scene" type="Node2D" unique_id=2066010757]
+script = ExtResource("1_gl6ei")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1779129268]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=653611579]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.65882355, 0, 0, 1)
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=39553123]
+offset_left = 397.0
+offset_top = 288.0
+offset_right = 728.0
+offset_bottom = 411.0
+theme = ExtResource("1_bjqob")
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
+[node name="Lose" type="Label" parent="CanvasLayer" unique_id=317844451]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 168.0
+offset_right = 128.0
+offset_bottom = 288.0
+grow_horizontal = 2
+theme = ExtResource("1_bjqob")
+text = "You Lose"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

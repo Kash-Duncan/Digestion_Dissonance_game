@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://dcgymubfg3aet"]
 
-[ext_resource type="Script" uid="uid://dtcmquvdrcjk2" path="res://Scenes/game.gd" id="1_3dryh"]
+[ext_resource type="Script" uid="uid://dtcmquvdrcjk2" path="res://Scripts/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://ddt8nvk7mvl1p" path="res://Prefabs/player.tscn" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://cyf4h8st3c0g4" path="res://Textures/Digestion_tilemap_finished.png" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dt8uv8hxjyw88" path="res://Prefabs/enemy.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://btspwddgpdodd" path="res://Prefabs/end_area.tscn" id="5_wowpa"]
-[ext_resource type="Script" uid="uid://7y8y764e5sw2" path="res://Scenes/ui.gd" id="6_i6g32"]
+[ext_resource type="Script" uid="uid://7y8y764e5sw2" path="res://Scripts/ui.gd" id="6_i6g32"]
+[ext_resource type="Theme" uid="uid://ca8j5xhg8o6a5" path="res://Themes/Pixel_theme.tres" id="7_1l0tm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_qxrlw")
@@ -423,12 +424,24 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("7_1l0tm")
 text = "Score: 0"
 
 [node name="Digestion_Timer" type="Label" parent="CanvasLayer" unique_id=111885980]
 offset_right = 40.0
 offset_bottom = 23.0
+theme = ExtResource("7_1l0tm")
 text = "Time: 0"
+
+[node name="Charge_time" type="Label" parent="CanvasLayer" unique_id=1498211504]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -33.0
+offset_right = 186.0
+grow_vertical = 0
+theme = ExtResource("7_1l0tm")
+text = "Charge: 0"
 
 [node name="digestion_timer" type="Timer" parent="CanvasLayer" unique_id=428346715]
 wait_time = 60.0

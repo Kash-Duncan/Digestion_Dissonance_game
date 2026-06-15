@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://ckr3e7otcemu2" path="res://Textures/Player-4.png.png" id="1_v0iea"]
 [ext_resource type="Shape2D" uid="uid://cggsglrrkcgyx" path="res://Shapes/Player_Shape.tres" id="3_2nftw"]
 [ext_resource type="Shape2D" uid="uid://b2ebsvciodom2" path="res://Shapes/crouch_play_shape.tres" id="4_knrd4"]
-[ext_resource type="Script" uid="uid://c3lftp7eknkeh" path="res://Prefabs/hurtbox.gd" id="5_knrd4"]
-[ext_resource type="Script" uid="uid://dc4883vbgdvvn" path="res://Prefabs/pickup_box.gd" id="6_hck1p"]
+[ext_resource type="Script" uid="uid://c3lftp7eknkeh" path="res://Scripts/hurtbox.gd" id="5_knrd4"]
+[ext_resource type="Script" uid="uid://dc4883vbgdvvn" path="res://Scripts/pickup_box.gd" id="6_hck1p"]
+[ext_resource type="Texture2D" uid="uid://cxg72lgwo34n4" path="res://Textures/Health_Under.png" id="7_08u7w"]
+[ext_resource type="Texture2D" uid="uid://buon5r6slp1w2" path="res://Textures/Health_Over.png" id="8_kgmex"]
+[ext_resource type="Texture2D" uid="uid://deex5jy7mdq5a" path="res://Textures/Health_Progress.png" id="9_2xbkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nftw"]
 
@@ -76,6 +79,14 @@ script = ExtResource("6_hck1p")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_box" unique_id=590396831]
 shape = SubResource("CircleShape2D_knrd4")
 disabled = true
+
+[node name="health_bar" type="TextureProgressBar" parent="." unique_id=1764469879]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+texture_under = ExtResource("7_08u7w")
+texture_over = ExtResource("8_kgmex")
+texture_progress = ExtResource("9_2xbkd")
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Disable_Jump_Timer" to="." method="_on_disable_jump_timer_timeout"]

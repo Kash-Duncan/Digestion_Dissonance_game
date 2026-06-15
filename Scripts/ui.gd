@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var score = 0
+var charge_time = 0
 @onready var time = $digestion_timer.time_left
 
 # Called when the node enters the scene tree for the first time.
@@ -17,4 +18,6 @@ func update_ui():
 
 func _process(delta: float) -> void:
 	time -= delta
+	charge_time = Event_Bus._charge_time
 	$Digestion_Timer.text = "Time: %.2f " %time
+	$Charge_time.text = "Charge: %.2f " %charge_time

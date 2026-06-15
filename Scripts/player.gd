@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name player
+
 @onready var jump_timer = $jump_timer
 @onready var Stand_shape = $Standing_Shape
 @onready var Crouch_shape = $Crouch_Shape
@@ -10,6 +12,11 @@ extends CharacterBody2D
 @onready var pickup_collision = $pickup_box/CollisionShape2D
 @onready var attack_timer = $attack_timer
 @onready var pickup_timer = $pickup_timer
+@onready var health_bar = $health_bar
+@export var health : int = 100
+
+func _ready() -> void:
+	set_health()
 
 const orignal_speed = 300.0
 var SPEED = 300.0
@@ -175,10 +182,7 @@ func execute_dash(delta: float):
 
 
 func end_screen():
-	get_tree().change_scene_to_file("res://Scenes/end_scene.tscn")
-
-func take_damage():
-	position -= Vector2(100,0)
+	get_tree().change_scene_to_file("res://Scenes/win_scene.tscn")
 
 func _on_gravity_cancel_timer_timeout() -> void:
 	SPEED = orignal_speed
@@ -188,3 +192,16 @@ func _on_attack_timer_timeout() -> void:
 
 func _on_pickup_timer_timeout() -> void:
 	pickup_collision.disabled = true
+
+func set_health():
+	health_bar.max_value = health
+	health_bar.value = health
+
+func update_health(Amount: int):
+	health += Amount
+	health_bar.value = health
+
+func _process(delta: float) -> void:
+	if health == 0:
+		get_tree().change_scene_to_file("res://Scenes/lose_scene.tscn")
+	Event_Bus._charge_time = charge_time
