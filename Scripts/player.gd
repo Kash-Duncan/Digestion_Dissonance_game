@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name player
 
+@onready var stand_texture = preload("res://Textures/Player-4.png.png")
+@onready var crouch_texture = preload("res://Textures/Player_Crouch.png")
 @onready var jump_timer = $jump_timer
 @onready var Stand_shape = $Standing_Shape
 @onready var Crouch_shape = $Crouch_Shape
@@ -127,6 +129,10 @@ func _physics_process(delta: float) -> void:
 				$Sprite2D.flip_h = false
 			elif velocity.x < 0:
 				$Sprite2D.flip_h = true
+			if is_crouching:
+				$Sprite2D.texture = crouch_texture
+			else:
+				$Sprite2D.texture = stand_texture
 			# Handle jump.
 			if Input.is_action_pressed("Jump") and can_jump == true:
 				if Disable_Jump_Timer.is_stopped():
