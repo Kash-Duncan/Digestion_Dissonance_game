@@ -123,6 +123,10 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, direction * SPEED, current_accel * delta)
 			else:
 				velocity.x = move_toward(velocity.x, 0, current_accel * delta)
+			if velocity.x > 0:
+				$Sprite2D.flip_h = false
+			elif velocity.x < 0:
+				$Sprite2D.flip_h = true
 			# Handle jump.
 			if Input.is_action_pressed("Jump") and can_jump == true:
 				if Disable_Jump_Timer.is_stopped():
