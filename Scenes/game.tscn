@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtcmquvdrcjk2" path="res://Scripts/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://ddt8nvk7mvl1p" path="res://Prefabs/player.tscn" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://cyf4h8st3c0g4" path="res://Textures/Digestion_tilemap_finished.png" id="2_qxrlw"]
+[ext_resource type="Texture2D" uid="uid://dlvvckrlvggdl" path="res://Textures/Tile_Map_export.png" id="2_v158k"]
 [ext_resource type="PackedScene" uid="uid://dt8uv8hxjyw88" path="res://Prefabs/enemy.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://btspwddgpdodd" path="res://Prefabs/end_area.tscn" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://7y8y764e5sw2" path="res://Scripts/ui.gd" id="6_i6g32"]
@@ -398,6 +399,14 @@ sources/0 = SubResource("TileSetAtlasSource_wrm1d")
 
 [node name="game" type="Node2D" unique_id=159424010]
 script = ExtResource("1_3dryh")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1865316168]
+offset_left = -1608.0
+offset_top = -800.0
+offset_right = 2248.0
+offset_bottom = 368.0
+texture = ExtResource("2_v158k")
+stretch_mode = 1
 
 [node name="player" parent="." unique_id=379537739 instance=ExtResource("1_qxrlw")]
 position = Vector2(-607, -38)

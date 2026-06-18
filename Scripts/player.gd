@@ -10,7 +10,7 @@ class_name player
 @onready var Disable_Jump_Timer = $Disable_Jump_Timer
 @onready var Gravity_cancel_timer = $Gravity_Cancel_timer
 @onready var crouch_checker = $Crouch_ShapeCast2D
-@onready var hurtbox_collision = $hurtbox/hurtbox_collision
+@onready var hurtbox_collision = $Marker2D/hurtbox/hurtbox_collision
 @onready var pickup_collision = $pickup_box/CollisionShape2D
 @onready var attack_timer = $attack_timer
 @onready var pickup_timer = $pickup_timer
@@ -127,8 +127,10 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, current_accel * delta)
 			if velocity.x > 0:
 				$Sprite2D.flip_h = false
+				$Marker2D.scale.x = 1
 			elif velocity.x < 0:
 				$Sprite2D.flip_h = true
+				$Marker2D.scale.x = -1
 			if is_crouching:
 				$Sprite2D.texture = crouch_texture
 			else:
