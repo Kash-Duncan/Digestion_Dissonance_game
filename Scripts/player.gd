@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 		execute_dash(delta)
 		return
 	#charging the dash
-	if is_on_floor() and Input.is_action_pressed("ui_down") and Input.is_action_pressed("Jump"):
+	if is_on_floor() and is_crouching == true and Input.is_action_pressed("Jump"):
 		is_charging = true
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		charge_time = min(charge_time + delta, MAX_charge_time)
@@ -112,7 +112,7 @@ func _physics_process(delta: float) -> void:
 				is_charging = false
 				charge_time = 0.0
 				velocity.y = JUMP_VELOCITY
-				#ADD Stand feature when dash timer isnt accepted
+				Stand()
 		if not is_charging and not is_dashing:
 			var direction := Input.get_axis("ui_left", "ui_right")
 			
