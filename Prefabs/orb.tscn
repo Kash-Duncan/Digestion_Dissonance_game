@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cp0yqeeef0sdp"]
 
-[ext_resource type="Texture2D" uid="uid://wgwykaommi86" path="res://Textures/Tile_Map_1.png" id="1_85ob8"]
+[ext_resource type="Texture2D" uid="uid://wgwykaommi86" path="res://Textures/Tilemaps/Tile_Map_1.png" id="1_85ob8"]
 [ext_resource type="Script" uid="uid://cslhvhi6f1brc" path="res://Scripts/orb.gd" id="1_xurj8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xurj8"]

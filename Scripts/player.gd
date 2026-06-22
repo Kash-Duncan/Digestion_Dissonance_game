@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 class_name player
 
-@onready var stand_texture = preload("res://Textures/Player-4.png.png")
-@onready var crouch_texture = preload("res://Textures/Player_Crouch.png")
+@onready var stand_texture = preload("res://Textures/Characters/Player-4.png.png")
+@onready var crouch_texture = preload("res://Textures/Characters/Player_Crouch.png")
 @onready var jump_timer = $jump_timer
 @onready var Stand_shape = $Standing_Shape
 @onready var Crouch_shape = $Crouch_Shape
@@ -72,7 +72,7 @@ func Stand():
 	Stand_shape.disabled = false
 	
 func attack():
-	var input_d = Input.get_axis("ui_left","ui_right")
+	var input_d = Input.get_axis("Left","Right")
 	attack_timer.start()
 	if input_d != 0:
 		hurtbox_collision.disabled = false
@@ -103,6 +103,13 @@ func _physics_process(delta: float) -> void:
 		is_charging = true
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		charge_time = min(charge_time + delta, MAX_charge_time)
+		var charge_direction := Input.get_axis("Left","Right")
+		if charge_direction > 0:
+			$Sprite2D.flip_h = false
+			$Marker2D.scale.x = 1
+		elif charge_direction < 0:
+			$Sprite2D.flip_h = true
+			$Marker2D.scale.x = -1
 	else: #Released/normal movement
 		if is_charging:
 			if charge_time >= 0.3:
@@ -114,7 +121,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY
 				Stand()
 		if not is_charging and not is_dashing:
-			var direction := Input.get_axis("ui_left", "ui_right")
+			var direction := Input.get_axis("Left", "Right")
 			
 			var current_accel: float
 			if is_on_floor():
@@ -166,13 +173,18 @@ func start_dash():
 	is_charging = false
 	is_dashing = true
 	dash_timer = DASH_duration
-	var input_d = Input.get_axis("ui_left","ui_right")
+	var input_d = Input.get_axis("Left","Right")
 	if input_d != 0:
 		dash_dir = Vector2(input_d, 0).normalized()
 	else:
 		#RIGHT means default dashing will be right
 		dash_dir = Vector2.UP
-	
+	if input_d > 0:
+		$Sprite2D.flip_h = false
+		$Marker2D.scale.x = 1
+	elif input_d < 0:
+		$Sprite2D.flip_h = true
+		$Marker2D.scale.x = -1
 	var charge_percent = charge_time / MAX_charge_time
 	var final_force = DASH_SPEED * lerp(0.5, 1.0, charge_percent)
 	
@@ -182,7 +194,7 @@ func start_dash():
 	
 func execute_dash(delta: float):
 	dash_timer -= delta
-	var air_steer = Input.get_axis("ui_left","ui_right")
+	var air_steer = Input.get_axis("Left","Right")
 	if air_steer != 0:
 		velocity.x = move_toward(velocity.x, air_steer * DASH_SPEED, SPEED * delta)
 	velocity += get_gravity() * delta

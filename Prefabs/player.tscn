@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://ddt8nvk7mvl1p"]
 
 [ext_resource type="Script" uid="uid://k8abkjojfxc3" path="res://Scripts/player.gd" id="1_5wxv7"]
-[ext_resource type="Texture2D" uid="uid://ckr3e7otcemu2" path="res://Textures/Player-4.png.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://ckr3e7otcemu2" path="res://Textures/Characters/Player-4.png.png" id="1_v0iea"]
 [ext_resource type="Shape2D" uid="uid://cggsglrrkcgyx" path="res://Shapes/Player_Shape.tres" id="3_2nftw"]
 [ext_resource type="Shape2D" uid="uid://b2ebsvciodom2" path="res://Shapes/crouch_play_shape.tres" id="4_knrd4"]
 [ext_resource type="Script" uid="uid://c3lftp7eknkeh" path="res://Scripts/hurtbox.gd" id="5_knrd4"]
 [ext_resource type="Script" uid="uid://dc4883vbgdvvn" path="res://Scripts/pickup_box.gd" id="6_hck1p"]
-[ext_resource type="Texture2D" uid="uid://cxg72lgwo34n4" path="res://Textures/Health_Under.png" id="7_08u7w"]
-[ext_resource type="Texture2D" uid="uid://buon5r6slp1w2" path="res://Textures/Health_Over.png" id="8_kgmex"]
-[ext_resource type="Texture2D" uid="uid://deex5jy7mdq5a" path="res://Textures/Health_Progress.png" id="9_2xbkd"]
+[ext_resource type="Texture2D" uid="uid://cxg72lgwo34n4" path="res://Textures/UI/Health_Under.png" id="7_08u7w"]
+[ext_resource type="Texture2D" uid="uid://buon5r6slp1w2" path="res://Textures/UI/Health_Over.png" id="8_kgmex"]
+[ext_resource type="Texture2D" uid="uid://deex5jy7mdq5a" path="res://Textures/UI/Health_Progress.png" id="9_2xbkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nftw"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvpdftv0ueuya"
-path="res://.godot/imported/Player_Crouch.png-74a3c1539c6ce184d05e3c0f005f6dfb.ctex"
+uid="uid://dccg1t558lrvb"
+path="res://.godot/imported/Digestion_Final_tiles_done.png-a70418a3c9435a0f24c42adec251f723.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Player_Crouch.png"
-dest_files=["res://.godot/imported/Player_Crouch.png-74a3c1539c6ce184d05e3c0f005f6dfb.ctex"]
+source_file="res://Textures/Tilemaps/Digestion_Final_tiles_done.png"
+dest_files=["res://.godot/imported/Digestion_Final_tiles_done.png-a70418a3c9435a0f24c42adec251f723.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlvvckrlvggdl"
-path="res://.godot/imported/Tile_Map_export.png-82a8a09e2812b8c3a333d900adf03ecc.ctex"
+uid="uid://buon5r6slp1w2"
+path="res://.godot/imported/Health_Over.png-d9ca1b27cabd1fe77d2c8c7588895574.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Tile_Map_export.png"
-dest_files=["res://.godot/imported/Tile_Map_export.png-82a8a09e2812b8c3a333d900adf03ecc.ctex"]
+source_file="res://Textures/UI/Health_Over.png"
+dest_files=["res://.godot/imported/Health_Over.png-d9ca1b27cabd1fe77d2c8c7588895574.ctex"]
 
 [params]
 

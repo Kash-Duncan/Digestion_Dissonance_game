@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wgwykaommi86"
-path="res://.godot/imported/Tile_Map_1.png-7f24d521787e0ca84012a43c54d49994.ctex"
+uid="uid://cxg72lgwo34n4"
+path="res://.godot/imported/Health_Under.png-961fdddf298722dc9025c1a237d1d5ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Tile_Map_1.png"
-dest_files=["res://.godot/imported/Tile_Map_1.png-7f24d521787e0ca84012a43c54d49994.ctex"]
+source_file="res://Textures/UI/Health_Under.png"
+dest_files=["res://.godot/imported/Health_Under.png-961fdddf298722dc9025c1a237d1d5ca.ctex"]
 
 [params]
 
