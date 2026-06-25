@@ -21,6 +21,8 @@ height = 80.0
 
 [node name="player" type="CharacterBody2D" unique_id=379537739]
 script = ExtResource("1_5wxv7")
+JUMP_VELOCITY = -335.0
+MAX_charge_time = 0.75
 
 [node name="Standing_Shape" type="CollisionShape2D" parent="." unique_id=2054257909]
 position = Vector2(-3.5, 15)

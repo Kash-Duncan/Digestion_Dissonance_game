@@ -22,10 +22,10 @@ func _ready() -> void:
 
 const orignal_speed = 300.0
 var SPEED = 300.0
-const JUMP_VELOCITY = -350.0
+@export var JUMP_VELOCITY = -350.0
 const DASH_SPEED = 950
-const MAX_charge_time = 1.0
-const DASH_duration = 0.35
+@export var MAX_charge_time = 1.0
+const DASH_duration = 0.4
 const ground_accel = 4000.0
 const air_accel = 1500.0
 
@@ -40,6 +40,13 @@ var can_jump = true
 var is_crouching = false
 
 var start_position = Vector2(-607.0,-38.0)
+
+func Stand():
+	if is_crouching == false:
+		return
+	is_crouching = false
+	Crouch_shape.disabled = true
+	Stand_shape.disabled = false
 
 func Jump():
 	if is_crouching == false:
@@ -63,13 +70,6 @@ func Crouch():
 		is_crouching = true
 		Stand_shape.disabled = true
 		Crouch_shape.disabled = false
-
-func Stand():
-	if is_crouching == false:
-		return
-	is_crouching = false
-	Crouch_shape.disabled = true
-	Stand_shape.disabled = false
 	
 func attack():
 	var input_d = Input.get_axis("Left","Right")
@@ -94,6 +94,9 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * 2.5 * delta
 		else:
 			velocity += get_gravity() * delta
+
+	if Input.is_action_just_pressed("Stand") and not crouch_checker.is_colliding():
+		Stand()
 
 	if is_dashing:
 		execute_dash(delta)
@@ -143,13 +146,13 @@ func _physics_process(delta: float) -> void:
 			else:
 				$Sprite2D.texture = stand_texture
 			# Handle jump.
-			if Input.is_action_pressed("Jump") and can_jump == true:
+			if Input.is_action_pressed("Jump") and can_jump and Disable_Jump_Timer or (Input.is_action_pressed("Stand") and is_crouching == false) and can_jump == true and Disable_Jump_Timer:
 				if Disable_Jump_Timer.is_stopped():
 					if jump_timer.is_stopped():
 						jump_timer.start()
 					Jump()
 			#Handle Jump Cut
-			if Input.is_action_just_released("Jump"):
+			if Input.is_action_just_released("Jump") or Input.is_action_just_released("Stand"):
 				Jump_cut()
 
 	if is_on_floor():
@@ -157,9 +160,6 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("Crouch"):
 		Crouch()
-	
-	if Input.is_action_just_pressed("Stand") and not crouch_checker.is_colliding():
-		Stand()
 	
 	if Input.is_action_just_pressed("Attack"):
 		attack()
@@ -189,7 +189,7 @@ func start_dash():
 	var final_force = DASH_SPEED * lerp(0.5, 1.0, charge_percent)
 	
 	velocity.x = dash_dir.x * final_force
-	velocity.y = -400.0
+	velocity.y = -450.0
 	charge_time = 0.0
 	
 func execute_dash(delta: float):
