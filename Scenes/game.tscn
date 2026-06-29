@@ -399,6 +399,7 @@ terrain_set_0/terrain_0/color = Color(0.79556376, 0.16916728, 0.22380507, 1)
 sources/1 = SubResource("TileSetAtlasSource_h4fw4")
 
 [node name="game" type="Node2D" unique_id=159424010]
+position = Vector2(2, 0)
 script = ExtResource("1_3dryh")
 
 [node name="Parallax2D_Far" type="Parallax2D" parent="." unique_id=895148526]

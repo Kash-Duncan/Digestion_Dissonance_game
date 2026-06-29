@@ -38,6 +38,7 @@ var dash_dir := Vector2.ZERO
 
 var can_jump = true
 var is_crouching = false
+var is_jumping = false
 
 var start_position = Vector2(-607.0,-38.0)
 
@@ -47,11 +48,13 @@ func Stand():
 	is_crouching = false
 	Crouch_shape.disabled = true
 	Stand_shape.disabled = false
+	Disable_Jump_Timer.start()
 
 func Jump():
 	if is_crouching == false:
 		velocity.y = JUMP_VELOCITY
-	elif not Input.is_action_pressed("Crouch") and not crouch_checker.is_colliding():
+		is_jumping = true
+	elif is_crouching and not crouch_checker.is_colliding():
 		Disable_Jump_Timer.start()
 		Stand_shape.disabled = false
 		is_crouching = false
@@ -61,6 +64,7 @@ func Jump_cut():
 	if velocity.y < -150 and velocity.y > -50:
 		velocity.y = 250
 		can_jump = false
+		is_jumping = false
 		jump_timer.stop()
 
 func Crouch():
@@ -95,7 +99,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("Stand") and not crouch_checker.is_colliding():
+	if Input.is_action_pressed("Stand") and not crouch_checker.is_colliding():
 		Stand()
 
 	if is_dashing:
@@ -122,6 +126,7 @@ func _physics_process(delta: float) -> void:
 				is_charging = false
 				charge_time = 0.0
 				velocity.y = JUMP_VELOCITY
+				is_jumping = true
 				Stand()
 		if not is_charging and not is_dashing:
 			var direction := Input.get_axis("Left", "Right")
@@ -146,13 +151,13 @@ func _physics_process(delta: float) -> void:
 			else:
 				$Sprite2D.texture = stand_texture
 			# Handle jump.
-			if Input.is_action_pressed("Jump") and can_jump and Disable_Jump_Timer or (Input.is_action_pressed("Stand") and is_crouching == false) and can_jump == true and Disable_Jump_Timer:
+			if Input.is_action_pressed("Jump") and can_jump or (Input.is_action_pressed("Stand") and is_crouching == false) and can_jump == true:
 				if Disable_Jump_Timer.is_stopped():
 					if jump_timer.is_stopped():
 						jump_timer.start()
 					Jump()
 			#Handle Jump Cut
-			if Input.is_action_just_released("Jump") or Input.is_action_just_released("Stand"):
+			if Input.is_action_just_released("Jump") and is_jumping or Input.is_action_just_released("Stand") and is_jumping:
 				Jump_cut()
 
 	if is_on_floor():
@@ -166,7 +171,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("Digest"):
 		digest()
-	
+	print("Time Remainging: ", snapped(Disable_Jump_Timer.time_left, 0.01))
 	move_and_slide()
 
 func start_dash():
@@ -174,11 +179,10 @@ func start_dash():
 	is_dashing = true
 	dash_timer = DASH_duration
 	var input_d = Input.get_axis("Left","Right")
-	if input_d != 0:
+	if input_d == 0:
 		dash_dir = Vector2(input_d, 0).normalized()
-	else:
-		#RIGHT means default dashing will be right
-		dash_dir = Vector2.UP
+	elif input_d < 0:
+		dash_dir = Vector2(input_d, 0).normalized()
 	if input_d > 0:
 		$Sprite2D.flip_h = false
 		$Marker2D.scale.x = 1

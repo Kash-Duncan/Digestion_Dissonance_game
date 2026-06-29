@@ -45,7 +45,7 @@ wait_time = 0.135
 one_shot = true
 
 [node name="Disable_Jump_Timer" type="Timer" parent="." unique_id=1473236797]
-wait_time = 0.35
+wait_time = 0.15
 one_shot = true
 
 [node name="Gravity_Cancel_timer" type="Timer" parent="." unique_id=1103346933]
