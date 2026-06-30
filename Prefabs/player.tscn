@@ -11,6 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://deex5jy7mdq5a" path="res://Textures/UI/Health_Progress.png" id="9_2xbkd"]
 [ext_resource type="Script" uid="uid://c7c56t2cw81a4" path="res://Prefabs/state_machine.gd" id="10_kgmex"]
 [ext_resource type="Script" uid="uid://c5dre08rb84du" path="res://Prefabs/idle.gd" id="11_2xbkd"]
+[ext_resource type="Script" uid="uid://cl7tyssnbwjg" path="res://Prefabs/walk.gd" id="12_3vpsw"]
+[ext_resource type="Script" uid="uid://c0liwwjf4xhjq" path="res://Prefabs/jump.gd" id="13_m62uw"]
+[ext_resource type="Script" uid="uid://beskvri7lvcns" path="res://Prefabs/crouch.gd" id="13_ms580"]
+[ext_resource type="Script" uid="uid://bveyj3libp27a" path="res://Prefabs/fall.gd" id="14_b30ri"]
+[ext_resource type="Script" uid="uid://bn875uslsgqxu" path="res://Prefabs/dash.gd" id="15_q7l0e"]
+[ext_resource type="Script" uid="uid://c4xmb5u8e2v40" path="res://Prefabs/attack.gd" id="16_0fs2y"]
+[ext_resource type="Script" uid="uid://cxndeluh4b4ti" path="res://Prefabs/digest.gd" id="18_wphcr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nftw"]
 
@@ -20,6 +27,14 @@ radius = 56.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nftw"]
 radius = 24.0
 height = 80.0
+
+[sub_resource type="Animation" id="Animation_wphcr"]
+resource_name = "fall"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_and0b"]
+_data = {
+&"fall": SubResource("Animation_wphcr")
+}
 
 [node name="player" type="CharacterBody2D" unique_id=379537739]
 script = ExtResource("1_5wxv7")
@@ -101,22 +116,30 @@ script = ExtResource("10_kgmex")
 script = ExtResource("11_2xbkd")
 
 [node name="Walk" type="Node" parent="State_Machine" unique_id=483503895]
+script = ExtResource("12_3vpsw")
 
 [node name="Crouch" type="Node" parent="State_Machine" unique_id=588982717]
-
-[node name="Stand" type="Node" parent="State_Machine" unique_id=2052591943]
+script = ExtResource("13_ms580")
 
 [node name="Jump" type="Node" parent="State_Machine" unique_id=1234849427]
+script = ExtResource("13_m62uw")
 
 [node name="Dash" type="Node" parent="State_Machine" unique_id=526039065]
+script = ExtResource("15_q7l0e")
 
 [node name="Attack" type="Node" parent="State_Machine" unique_id=1821286273]
+script = ExtResource("16_0fs2y")
 
 [node name="Fall" type="Node" parent="State_Machine" unique_id=307476058]
+script = ExtResource("14_b30ri")
 
 [node name="Digest" type="Node" parent="State_Machine" unique_id=1752868654]
+script = ExtResource("18_wphcr")
 
 [node name="Attribute Ability" type="Node" parent="State_Machine" unique_id=7036443]
+
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=1633199236]
+libraries/ = SubResource("AnimationLibrary_and0b")
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Disable_Jump_Timer" to="." method="_on_disable_jump_timer_timeout"]
