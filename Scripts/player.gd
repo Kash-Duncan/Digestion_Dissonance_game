@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name player
+class_name Player
 
 @onready var stand_texture = preload("res://Textures/Characters/Player-4.png.png")
 @onready var crouch_texture = preload("res://Textures/Characters/Player_Crouch.png")
@@ -180,8 +180,11 @@ func start_dash():
 	dash_timer = DASH_duration
 	var input_d = Input.get_axis("Left","Right")
 	if input_d == 0:
-		dash_dir = Vector2(input_d, 0).normalized()
-	elif input_d < 0:
+		if $Sprite2D.flip_h:
+			input_d = -1.0
+		else:
+			input_d = 1
+	if input_d:
 		dash_dir = Vector2(input_d, 0).normalized()
 	if input_d > 0:
 		$Sprite2D.flip_h = false

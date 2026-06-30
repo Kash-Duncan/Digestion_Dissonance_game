@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cxg72lgwo34n4" path="res://Textures/UI/Health_Under.png" id="7_08u7w"]
 [ext_resource type="Texture2D" uid="uid://buon5r6slp1w2" path="res://Textures/UI/Health_Over.png" id="8_kgmex"]
 [ext_resource type="Texture2D" uid="uid://deex5jy7mdq5a" path="res://Textures/UI/Health_Progress.png" id="9_2xbkd"]
+[ext_resource type="Script" uid="uid://c7c56t2cw81a4" path="res://Prefabs/state_machine.gd" id="10_kgmex"]
+[ext_resource type="Script" uid="uid://c5dre08rb84du" path="res://Prefabs/idle.gd" id="11_2xbkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nftw"]
 
@@ -91,6 +93,30 @@ script = ExtResource("5_knrd4")
 position = Vector2(24, 8)
 shape = SubResource("CapsuleShape2D_2nftw")
 disabled = true
+
+[node name="State_Machine" type="Node" parent="." unique_id=1696807758]
+script = ExtResource("10_kgmex")
+
+[node name="Idle" type="Node" parent="State_Machine" unique_id=1776963654]
+script = ExtResource("11_2xbkd")
+
+[node name="Walk" type="Node" parent="State_Machine" unique_id=483503895]
+
+[node name="Crouch" type="Node" parent="State_Machine" unique_id=588982717]
+
+[node name="Stand" type="Node" parent="State_Machine" unique_id=2052591943]
+
+[node name="Jump" type="Node" parent="State_Machine" unique_id=1234849427]
+
+[node name="Dash" type="Node" parent="State_Machine" unique_id=526039065]
+
+[node name="Attack" type="Node" parent="State_Machine" unique_id=1821286273]
+
+[node name="Fall" type="Node" parent="State_Machine" unique_id=307476058]
+
+[node name="Digest" type="Node" parent="State_Machine" unique_id=1752868654]
+
+[node name="Attribute Ability" type="Node" parent="State_Machine" unique_id=7036443]
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="Disable_Jump_Timer" to="." method="_on_disable_jump_timer_timeout"]
