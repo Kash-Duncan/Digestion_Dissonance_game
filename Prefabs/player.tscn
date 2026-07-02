@@ -38,7 +38,6 @@ _data = {
 
 [node name="player" type="CharacterBody2D" unique_id=379537739]
 script = ExtResource("1_5wxv7")
-JUMP_VELOCITY = -335.0
 MAX_charge_time = 0.75
 
 [node name="Standing_Shape" type="CollisionShape2D" parent="." unique_id=2054257909]
@@ -75,6 +74,10 @@ wait_time = 0.2
 
 [node name="pickup_timer" type="Timer" parent="." unique_id=327171977]
 wait_time = 0.5
+
+[node name="min_jump_timer" type="Timer" parent="." unique_id=232524074]
+wait_time = 0.2
+one_shot = true
 
 [node name="Crouch_ShapeCast2D" type="ShapeCast2D" parent="." unique_id=639946357]
 position = Vector2(12.75, 4)

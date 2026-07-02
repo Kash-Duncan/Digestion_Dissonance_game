@@ -1,6 +1,6 @@
 extends PlayerState
 
-@export var crouch_speed_multiplyer := 0.4
+@export var crouch_speed_multiplyer := 0.80
 
 func enter(_previous_state_path: String, data := {}) -> void:
 	player.Crouch()
@@ -23,4 +23,3 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("Stand") and not player.crouch_checker.is_colliding():
 		player.Stand()
 		finished.emit(IDLE)
-	

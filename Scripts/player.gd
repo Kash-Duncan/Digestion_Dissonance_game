@@ -15,11 +15,12 @@ class_name Player
 @onready var pickup_timer = $pickup_timer
 @onready var health_bar = $health_bar
 @onready var animation_player = $animation_player
+@onready var min_jump_timer = $min_jump_timer
 
 @export var health : int = 100
 const orignal_speed = 300.0
 var SPEED = 300.0
-@export var JUMP_VELOCITY = -350.0
+var JUMP_VELOCITY = -450.0
 const DASH_SPEED = 950
 @export var MAX_charge_time = 1.0
 const DASH_duration = 0.4
@@ -56,6 +57,7 @@ func Jump():
 	if is_crouching == false:
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
+		min_jump_timer.start()
 	elif is_crouching and not crouch_checker.is_colliding():
 		Disable_Jump_Timer.start()
 		Stand_shape.disabled = false
@@ -63,11 +65,16 @@ func Jump():
 		Crouch_shape.disabled = true
 
 func Jump_cut():
-	if velocity.y < -150 and velocity.y > -50:
-		velocity.y = 250
+	if not is_jumping:
+		return
+	if not min_jump_timer.is_stopped():
+		return
+	is_jumping = false
+	jump_timer.stop()
+	if velocity.y < 0:
+		velocity.y *= 0.5
 		can_jump = false
 		is_jumping = false
-		jump_timer.stop()
 
 func Crouch():
 	if is_on_floor():
@@ -99,7 +106,7 @@ func start_dash():
 	var charge_percent = charge_time / MAX_charge_time
 	var final_force = DASH_SPEED * lerp(0.5, 1.0, charge_percent)
 	velocity.x = dash_dir.x * final_force
-	velocity.y = -450.0
+	velocity.y = -300.0
 	charge_time = 0.0
 
 func execute_dash(delta: float):
