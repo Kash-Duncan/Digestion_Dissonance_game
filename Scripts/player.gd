@@ -47,23 +47,18 @@ func _process(delta: float) -> void:
 		Event_Bus._charge_time = charge_time
 
 func Stand():
-	if is_crouching == false: return
 	is_crouching = false
 	Crouch_shape.disabled = true
 	Stand_shape.disabled = false
-	Disable_Jump_Timer.start()
+	if get_node_or_null("Sprite2D"):
+		$Sprite2D.texture = stand_texture
 
 func Jump():
-	if is_crouching == false:
-		velocity.y = JUMP_VELOCITY
-		is_jumping = true
+	Stand()
+	velocity.y = JUMP_VELOCITY
+	is_jumping = true
+	if min_jump_timer.is_stopped():
 		min_jump_timer.start()
-	elif is_crouching and not crouch_checker.is_colliding():
-		Disable_Jump_Timer.start()
-		Stand_shape.disabled = false
-		is_crouching = false
-		Crouch_shape.disabled = true
-
 func Jump_cut():
 	if not is_jumping:
 		return
