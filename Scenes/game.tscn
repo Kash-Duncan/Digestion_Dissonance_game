@@ -3,12 +3,33 @@
 [ext_resource type="Script" uid="uid://dtcmquvdrcjk2" path="res://Scripts/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://ddt8nvk7mvl1p" path="res://Prefabs/player.tscn" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://dgq3vplqqj2ly" path="res://Textures/Tilemaps/Background_Close.png" id="3_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://be3m7daglnkf7" path="res://Textures/Frames/Foreground_layer2.png" id="4_mucmn"]
 [ext_resource type="Texture2D" uid="uid://dccg1t558lrvb" path="res://Textures/Tilemaps/Digestion_Final_tiles_done.png" id="4_v158k"]
+[ext_resource type="Texture2D" uid="uid://conm7jsji47jj" path="res://Textures/Frames/Foreground_layer3.png" id="5_8m3t6"]
 [ext_resource type="PackedScene" uid="uid://dt8uv8hxjyw88" path="res://Prefabs/enemy.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://btspwddgpdodd" path="res://Prefabs/end_area.tscn" id="5_wowpa"]
+[ext_resource type="Texture2D" uid="uid://b7a2grrl6eebb" path="res://Textures/Frames/Foreground_layer4.png" id="6_ese38"]
 [ext_resource type="Script" uid="uid://7y8y764e5sw2" path="res://Scripts/ui.gd" id="6_i6g32"]
 [ext_resource type="Theme" uid="uid://ca8j5xhg8o6a5" path="res://Themes/Pixel_theme.tres" id="7_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://t5ragujmwhm2" path="res://Textures/Frames/Foreground_layer5.png" id="7_oeip8"]
+[ext_resource type="Texture2D" uid="uid://dli7lg41v3ty8" path="res://Textures/Frames/Foreground_layer6.png" id="8_xe308"]
+[ext_resource type="Texture2D" uid="uid://cv2cw80dc1mxt" path="res://Textures/Frames/Foreground_layer7.png" id="9_d3cha"]
 [ext_resource type="Texture2D" uid="uid://6ulvpmyp0q0x" path="res://Textures/Tilemaps/Background_Far.png" id="9_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://2ks322gkqae2" path="res://Textures/Frames/Foreground_layer8.png" id="10_i26dy"]
+[ext_resource type="Texture2D" uid="uid://crdqyeab2flgt" path="res://Textures/Frames/Foreground_layer9.png" id="11_lmoi6"]
+[ext_resource type="Texture2D" uid="uid://l1ctc2gpqgnk" path="res://Textures/Frames/Foreground_layer10.png" id="12_6uxt2"]
+[ext_resource type="Texture2D" uid="uid://b787dtdm2x5t" path="res://Textures/Frames/Foreground_layer11.png" id="13_ym3tv"]
+[ext_resource type="Texture2D" uid="uid://be1nsb4nyvf26" path="res://Textures/Frames/Foreground_layer12.png" id="14_bwj6o"]
+[ext_resource type="Texture2D" uid="uid://blgiup0gifsti" path="res://Textures/Frames/Foreground_layer13.png" id="15_f3c8l"]
+[ext_resource type="Texture2D" uid="uid://bvyl4k31d8gny" path="res://Textures/Frames/Foreground_layer14.png" id="16_bu0y5"]
+[ext_resource type="Texture2D" uid="uid://vv6ptbcpy2aa" path="res://Textures/Frames/Foreground_layer15.png" id="17_6a4tp"]
+[ext_resource type="Texture2D" uid="uid://c58qwqfhginx6" path="res://Textures/Frames/Foreground_layer16.png" id="18_631el"]
+[ext_resource type="Texture2D" uid="uid://dy2pdj8grg6xg" path="res://Textures/Frames/Foreground_layer17.png" id="19_vs120"]
+[ext_resource type="Texture2D" uid="uid://0oa43rmtfdy" path="res://Textures/Frames/Foreground_layer18.png" id="20_v2cs8"]
+[ext_resource type="Texture2D" uid="uid://036lrelg32jd" path="res://Textures/Frames/Foreground_layer19.png" id="21_32sfa"]
+[ext_resource type="Texture2D" uid="uid://djpb7upui1e4" path="res://Textures/Frames/Foreground_layer20.png" id="22_titue"]
+[ext_resource type="Texture2D" uid="uid://bmeihbomm6uew" path="res://Textures/Frames/Foreground_layer21.png" id="23_tt7mg"]
+[ext_resource type="Texture2D" uid="uid://cidacamt3wnn3" path="res://Textures/Frames/Foreground_layer22.png" id="24_htg8p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
 texture = ExtResource("4_v158k")
@@ -398,30 +419,97 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.79556376, 0.16916728, 0.22380507, 1)
 sources/1 = SubResource("TileSetAtlasSource_h4fw4")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcvim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mucmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8m3t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ese38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oeip8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xe308")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d3cha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i26dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lmoi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6uxt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ym3tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bwj6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_f3c8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bu0y5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6a4tp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_631el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_vs120")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_v2cs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_32sfa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_titue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_tt7mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_htg8p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="game" type="Node2D" unique_id=159424010]
 script = ExtResource("1_3dryh")
 
 [node name="Parallax2D_Far" type="Parallax2D" parent="." unique_id=895148526]
 scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(0, 164)
+repeat_size = Vector2(960, 0)
+repeat_times = 3
 
-[node name="TextureRect" type="TextureRect" parent="Parallax2D_Far" unique_id=1687086869]
-offset_left = -1343.0
-offset_top = -57.0
-offset_right = 2001.0
-offset_bottom = 735.0
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far" unique_id=196836223]
 texture = ExtResource("9_h4fw4")
-stretch_mode = 1
 
 [node name="Parallax2D_Close" type="Parallax2D" parent="." unique_id=1970151545]
 scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, 25)
+repeat_size = Vector2(960, 0)
+repeat_times = 3
 
-[node name="TextureRect" type="TextureRect" parent="Parallax2D_Close" unique_id=1082706098]
-offset_left = -1344.0
-offset_top = -245.0
-offset_right = 2000.0
-offset_bottom = 547.0
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Close" unique_id=1805329221]
 texture = ExtResource("3_h4fw4")
-stretch_mode = 1
 
 [node name="player" parent="." unique_id=379537739 instance=ExtResource("1_qxrlw")]
 position = Vector2(-607, -38)
@@ -542,5 +630,17 @@ offset_bottom = -161.0
 theme = ExtResource("7_1l0tm")
 theme_override_font_sizes/font_size = 20
 text = "Digest: Shift"
+
+[node name="Parallax2D_Front" type="Parallax2D" parent="." unique_id=1768931070]
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(960, 0)
+repeat_times = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D_Front" unique_id=231608510]
+position = Vector2(0, -136)
+sprite_frames = SubResource("SpriteFrames_jcvim")
+autoplay = "default"
+frame = 5
+frame_progress = 0.28099206
 
 [connection signal="timeout" from="CanvasLayer/digestion_timer" to="." method="_on_digestion_timer_timeout"]

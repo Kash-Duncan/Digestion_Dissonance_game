@@ -128,3 +128,6 @@ func set_health():
 func update_health(Amount: int):
 	health += Amount
 	health_bar.value = health
+
+func end_screen():
+	get_tree().change_scene_to_file("res://Scenes/win_scene.tscn")
