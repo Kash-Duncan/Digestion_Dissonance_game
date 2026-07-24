@@ -15,7 +15,7 @@ func physics_update(delta: float) -> void:
 	
 	if not Input.is_action_pressed("Jump") and player.is_jumping:
 		player.Jump_cut()
-		
+	
 	player.move_and_slide()
 
 	# Switch to Falling state once character starts downward trajectory

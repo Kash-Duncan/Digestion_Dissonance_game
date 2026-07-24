@@ -4,6 +4,7 @@ func enter(_previous_state_path: String, data := {}) -> void:
 	player.get_node("Sprite2D").texture = player.stand_texture
 
 func physics_update(delta: float) -> void:
+	player.velocity += player.get_gravity() * delta
 	if not player.is_on_floor():
 		finished.emit("Fall")
 		return

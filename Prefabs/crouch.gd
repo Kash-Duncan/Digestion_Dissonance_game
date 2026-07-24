@@ -7,6 +7,7 @@ func enter(_previous_state_path: String, data := {}) -> void:
 	player.get_node("Sprite2D").texture = player.crouch_texture
 
 func physics_update(delta: float) -> void:
+	player.velocity += player.get_gravity() * delta
 	var direction := Input.get_axis("Left", "Right")
 	var target_speed = direction * (player.SPEED * crouch_speed_multiplyer)
 	player.velocity.x = move_toward(player.velocity.x, target_speed, player.ground_accel * delta)

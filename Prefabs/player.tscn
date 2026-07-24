@@ -73,11 +73,27 @@ tracks/0/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_i3mxk"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_and0b"]
 _data = {
 &"RESET": SubResource("Animation_405c5"),
 &"attack": SubResource("Animation_and0b"),
-&"fall": SubResource("Animation_wphcr")
+&"fall": SubResource("Animation_wphcr"),
+&"idle": SubResource("Animation_i3mxk")
 }
 
 [node name="player" type="CharacterBody2D" unique_id=379537739]
