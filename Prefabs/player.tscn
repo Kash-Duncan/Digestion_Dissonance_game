@@ -110,7 +110,6 @@ shape = ExtResource("4_knrd4")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1077243394]
-zoom = Vector2(1.5, 1.5)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
