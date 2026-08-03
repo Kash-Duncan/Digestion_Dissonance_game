@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cidacamt3wnn3" path="res://Textures/Frames/Foreground_layer22.png" id="23_ohiwv"]
 [ext_resource type="PackedScene" uid="uid://ddt8nvk7mvl1p" path="res://Prefabs/player.tscn" id="25_u6l3h"]
 [ext_resource type="PackedScene" uid="uid://cwq44c7rujliu" path="res://Prefabs/enemy_1.tscn" id="26_irsyi"]
+[ext_resource type="Script" uid="uid://bn7l53koq1f10" path="res://Scripts/finshed_game_area.gd" id="27_6wnhq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6l3h"]
 texture = ExtResource("3_4u6tg")
@@ -487,14 +488,16 @@ animations = [{
 }]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_irsyi"]
-vertices = PackedVector2Array(77.64844, -74, -84.96875, -74, -102.96875, -86, 101.64844, -86)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-408, -96, -391.90402, -95.999985, -376.1947, -95.99997, -347.50815, -95.999954, -314.7235, -95.999954, -272, -96, -248, -96, -224, -96, -204.75836, -95.999985, -160, -96, -136, -96, -88, -64, -68.838684, -64, -57.227448, -64, -40, -64, -20.344727, -64, 0, -64, 15.171936, -64, 28.832214, -64, 44.541504, -64, 59.56781, -64, 80, -64, 144, -96, 159.97076, -95.999985, 200, -96, 236.46826, -95.999985, 259.00775, -95.99997, 276.08307, -95.999954, 293.1584, -95.999954, 312.28278, -95.99997, 330.04114, -95.99997, 345.06744, -95.99997, 360, -96, 216, -96, 179.09515, -95.999985, -182.2189, -95.999985, -264, -96, -304, -96, -335.89697, -95.99997, -359.80237, -95.999985)])
+vertices = PackedVector2Array(75.453125, -74, -82.64844, -74, -111.96875, -118, 113.953125, -118, -207.96094, -106, -212.09375, -106, -202.71875, -109.74219)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-408, -96, -391.90402, -95.999985, -376.1947, -95.99997, -347.50815, -95.999954, -314.7235, -95.999954, -272, -96, -248, -96, -224, -96, -204.75836, -95.999985, -160, -128, -136, -136, -88, -64, -68.838684, -64, -57.227448, -64, -40, -64, -20.344727, -64, 0, -64, 15.171936, -64, 28.832214, -64, 44.541504, -64, 59.56781, -64, 80, -64, 136, -128, 168, -128, 200, -96, 236.46826, -95.999985, 259.00775, -95.99997, 276.08307, -95.999954, 293.1584, -95.999954, 312.28278, -95.99997, 328, -96, 345.06744, -95.99997, 360, -96, 216, -96, 192, -128, 0, -128, -184, -128, -264, -96, -304, -96, -335.89697, -95.99997, -359.80237, -95.999985)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wnhq"]
+size = Vector2(40, 40)
 
 [node name="cores" type="Node2D" unique_id=1387292946]
 
 [node name="Parallax2D_Far" type="Parallax2D" parent="." unique_id=238122344]
-visible = false
 scroll_scale = Vector2(0.2, 0.1)
 scroll_offset = Vector2(0, 164)
 repeat_size = Vector2(960, 0)
@@ -504,13 +507,13 @@ repeat_times = 3
 texture = ExtResource("1_q38ls")
 
 [node name="Parallax2D_Close" type="Parallax2D" parent="." unique_id=700483946]
-visible = false
 scroll_scale = Vector2(0.5, 0.25)
 scroll_offset = Vector2(0, 25)
 repeat_size = Vector2(960, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Close" unique_id=2091269610]
+position = Vector2(0, 7)
 texture = ExtResource("2_31yl1")
 
 [node name="Area_1_Tiles" type="TileMapLayer" parent="." unique_id=1289292527]
@@ -531,15 +534,34 @@ repeat_size = Vector2(960, 0)
 repeat_times = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D_Front" unique_id=1270131110]
-position = Vector2(0, -136)
+position = Vector2(0, -110)
 sprite_frames = SubResource("SpriteFrames_cjq7o")
 autoplay = "default"
 
 [node name="player" parent="." unique_id=379537739 instance=ExtResource("25_u6l3h")]
 position = Vector2(-16, -464)
 
-[node name="enemy_1" parent="." unique_id=148822394 instance=ExtResource("26_irsyi")]
-position = Vector2(-224, -112)
+[node name="enemy_2" parent="." unique_id=148822394 instance=ExtResource("26_irsyi")]
+position = Vector2(4224, -8)
+
+[node name="enemy_1" parent="." unique_id=1149090841 instance=ExtResource("26_irsyi")]
+position = Vector2(-1584, 304)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=258832306]
+position = Vector2(-1568, 544)
 navigation_polygon = SubResource("NavigationPolygon_irsyi")
+
+[node name="finshed_game_area" type="Area2D" parent="." unique_id=850729058]
+position = Vector2(4840, -136)
+script = ExtResource("27_6wnhq")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="finshed_game_area" unique_id=944016126]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finshed_game_area" unique_id=2133722561]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_6wnhq")
+
+[connection signal="body_entered" from="finshed_game_area" to="finshed_game_area" method="_on_body_entered"]

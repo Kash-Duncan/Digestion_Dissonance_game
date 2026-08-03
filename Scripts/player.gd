@@ -131,3 +131,10 @@ func update_health(Amount: int):
 
 func end_screen():
 	get_tree().change_scene_to_file("res://Scenes/win_scene.tscn")
+
+func tut_finished():
+	get_tree().change_scene_to_file("res://Scenes/cores.tscn")
+
+
+func _on_finshed_game_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

@@ -3,10 +3,10 @@ extends CharacterBody2D
 @onready var enemy_hitbox = $Marker2D/Hitbox
 @onready var health_bar = $health_bar
 var health : int = 30
-const SPEED = 300.0
+const SPEED = 200
 const JUMP_VELOCITY = -400.0
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-var player: CharacterBody2D = player_node
+@onready var player: CharacterBody2D = $"../player"
 
 
 func _ready() -> void:
@@ -17,10 +17,17 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if player:
-		nav_agent.target_position = player.global_position
+	if not player:
+		return
+	nav_agent.target_position = player.global_position
 	if nav_agent.is_navigation_finished():
 		return
+	
+	var current_agent_postion: Vector2 = global_position
+	var next_path_position: Vector2 = nav_agent.get_next_path_position()
+	
+	var direction: Vector2 = current_agent_postion.direction_to(next_path_position)
+	velocity = direction * SPEED
 
 	move_and_slide()
 

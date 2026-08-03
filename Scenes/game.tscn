@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://djpb7upui1e4" path="res://Textures/Frames/Foreground_layer20.png" id="22_titue"]
 [ext_resource type="Texture2D" uid="uid://bmeihbomm6uew" path="res://Textures/Frames/Foreground_layer21.png" id="23_tt7mg"]
 [ext_resource type="Texture2D" uid="uid://cidacamt3wnn3" path="res://Textures/Frames/Foreground_layer22.png" id="24_htg8p"]
-[ext_resource type="PackedScene" uid="uid://cwq44c7rujliu" path="res://Prefabs/enemy_1.tscn" id="30_mucmn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
 texture = ExtResource("4_v158k")
@@ -639,8 +638,5 @@ sprite_frames = SubResource("SpriteFrames_jcvim")
 autoplay = "default"
 frame = 5
 frame_progress = 0.28099206
-
-[node name="enemy_1" parent="." unique_id=148822394 instance=ExtResource("30_mucmn")]
-position = Vector2(-456, -56)
 
 [connection signal="timeout" from="CanvasLayer/digestion_timer" to="." method="_on_digestion_timer_timeout"]
