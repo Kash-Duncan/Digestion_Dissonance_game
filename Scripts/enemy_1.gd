@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var orb_prefab = preload("res://Prefabs/orb.tscn")
 @onready var enemy_hitbox = $Marker2D/Hitbox
 @onready var health_bar = $health_bar
 var health : int = 30
@@ -41,6 +42,13 @@ func update_health(Amount: int):
 	
 	if health <= 0:
 		queue_free()
+
+func enemy_killed():
+	var orb = orb_prefab.instantiate()
+	orb.position = position
+	get_parent().add_child(orb)
+	Event_Bus.enemy_killed.emit(5)
+	queue_free()
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.name == "player":

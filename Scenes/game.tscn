@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://djpb7upui1e4" path="res://Textures/Frames/Foreground_layer20.png" id="22_titue"]
 [ext_resource type="Texture2D" uid="uid://bmeihbomm6uew" path="res://Textures/Frames/Foreground_layer21.png" id="23_tt7mg"]
 [ext_resource type="Texture2D" uid="uid://cidacamt3wnn3" path="res://Textures/Frames/Foreground_layer22.png" id="24_htg8p"]
+[ext_resource type="PackedScene" uid="uid://dt8uv8hxjyw88" path="res://Prefabs/enemy.tscn" id="30_mucmn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
 texture = ExtResource("4_v158k")
@@ -557,35 +558,35 @@ one_shot = true
 autostart = true
 
 [node name="Crouch" type="Label" parent="." unique_id=1422684316]
-offset_left = -344.0
+offset_left = -362.0
 offset_top = -104.0
-offset_right = -143.0
+offset_right = -114.0
 offset_bottom = -60.0
 theme = ExtResource("7_1l0tm")
 theme_override_font_sizes/font_size = 20
-text = "Crouch: ↓"
+text = "Crouch: Down or S"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Movement" type="Label" parent="." unique_id=2142382143]
-offset_left = -720.0
+offset_left = -768.0
 offset_top = -152.0
-offset_right = -487.0
+offset_right = -418.0
 offset_bottom = -108.0
 theme = ExtResource("7_1l0tm")
 theme_override_font_sizes/font_size = 20
-text = "Move: Arrow Keys"
+text = "Move: Arrow Keys or WASD"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Jump" type="Label" parent="." unique_id=163126447]
 offset_left = -48.0
-offset_top = -160.0
+offset_top = -161.0
 offset_right = 54.0
-offset_bottom = -137.0
+offset_bottom = -138.0
 theme = ExtResource("7_1l0tm")
 theme_override_font_sizes/font_size = 20
-text = "Jump: Z"
+text = "Jump: Z or Space"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -596,7 +597,7 @@ offset_right = 144.0
 offset_bottom = -159.0
 theme = ExtResource("7_1l0tm")
 theme_override_font_sizes/font_size = 20
-text = "Higher Jump: Hold Z"
+text = "Higher Jump: Hold Jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -607,7 +608,7 @@ offset_right = 388.0
 offset_bottom = -212.0
 theme = ExtResource("7_1l0tm")
 theme_override_font_sizes/font_size = 20
-text = "Dash: Crouch + Hold Z"
+text = "Dash: Crouch + Hold Jump + Direction"
 
 [node name="Attack" type="Label" parent="." unique_id=1817269439]
 offset_left = 816.0
@@ -616,7 +617,7 @@ offset_right = 947.0
 offset_bottom = -57.0
 theme = ExtResource("7_1l0tm")
 theme_override_font_sizes/font_size = 20
-text = "Attack: X"
+text = "Attack: X or Left Mouse"
 
 [node name="Digest" type="Label" parent="." unique_id=1998280765]
 offset_left = 928.0
@@ -638,5 +639,8 @@ sprite_frames = SubResource("SpriteFrames_jcvim")
 autoplay = "default"
 frame = 5
 frame_progress = 0.28099206
+
+[node name="enemy" parent="." unique_id=1712363071 instance=ExtResource("30_mucmn")]
+position = Vector2(1240, -64)
 
 [connection signal="timeout" from="CanvasLayer/digestion_timer" to="." method="_on_digestion_timer_timeout"]

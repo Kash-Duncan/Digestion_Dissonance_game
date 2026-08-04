@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://ddt8nvk7mvl1p" path="res://Prefabs/player.tscn" id="25_u6l3h"]
 [ext_resource type="PackedScene" uid="uid://cwq44c7rujliu" path="res://Prefabs/enemy_1.tscn" id="26_irsyi"]
 [ext_resource type="Script" uid="uid://bn7l53koq1f10" path="res://Scripts/finshed_game_area.gd" id="27_6wnhq"]
+[ext_resource type="PackedScene" uid="uid://dc4vein42pjfr" path="res://Prefabs/enemy_core.tscn" id="28_a3a0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6l3h"]
 texture = ExtResource("3_4u6tg")
@@ -539,10 +540,7 @@ sprite_frames = SubResource("SpriteFrames_cjq7o")
 autoplay = "default"
 
 [node name="player" parent="." unique_id=379537739 instance=ExtResource("25_u6l3h")]
-position = Vector2(-16, -464)
-
-[node name="enemy_2" parent="." unique_id=148822394 instance=ExtResource("26_irsyi")]
-position = Vector2(4224, -8)
+position = Vector2(-256, -80)
 
 [node name="enemy_1" parent="." unique_id=1149090841 instance=ExtResource("26_irsyi")]
 position = Vector2(-1584, 304)
@@ -563,5 +561,11 @@ offset_bottom = 40.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="finshed_game_area" unique_id=2133722561]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_6wnhq")
+
+[node name="enemy_core" parent="." unique_id=1352488564 instance=ExtResource("28_a3a0k")]
+position = Vector2(4208, 24)
+
+[node name="enemy_core2" parent="." unique_id=1884649436 instance=ExtResource("28_a3a0k")]
+position = Vector2(1800, -136)
 
 [connection signal="body_entered" from="finshed_game_area" to="finshed_game_area" method="_on_body_entered"]

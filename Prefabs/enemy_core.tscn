@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dc4vein42pjfr"]
+
+[ext_resource type="Script" uid="uid://cmtiifor03dat" path="res://Scripts/enemy_core.gd" id="1_eo8vj"]
+[ext_resource type="Texture2D" uid="uid://c77q0bt35tlao" path="res://Textures/icon.svg" id="1_qbod5"]
+[ext_resource type="Texture2D" uid="uid://cxg72lgwo34n4" path="res://Textures/UI/Health_Under.png" id="2_eo8vj"]
+[ext_resource type="Texture2D" uid="uid://buon5r6slp1w2" path="res://Textures/UI/Health_Over.png" id="3_8o58r"]
+[ext_resource type="Texture2D" uid="uid://deex5jy7mdq5a" path="res://Textures/UI/Health_Progress.png" id="4_ykt6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gupe0"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ca1p2"]
+radius = 84.00595
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tfn2m"]
+radius = 25.0
+height = 96.0
+
+[node name="enemy_core" type="CharacterBody2D" unique_id=1352488564]
+script = ExtResource("1_eo8vj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1822685099]
+texture = ExtResource("1_qbod5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=269747934]
+shape = SubResource("RectangleShape2D_gupe0")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=460837815]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=515827908]
+shape = SubResource("CircleShape2D_ca1p2")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=554810330]
+
+[node name="Hurtbox" type="Area2D" parent="Marker2D" unique_id=275539354]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hurtbox" unique_id=1182154218]
+position = Vector2(-70, 0)
+shape = SubResource("CapsuleShape2D_tfn2m")
+
+[node name="health_bar" type="TextureProgressBar" parent="." unique_id=718925456]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+max_value = 30.0
+texture_under = ExtResource("2_eo8vj")
+texture_over = ExtResource("3_8o58r")
+texture_progress = ExtResource("4_ykt6q")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Marker2D/Hurtbox" to="." method="_on_hurtbox_body_entered"]
