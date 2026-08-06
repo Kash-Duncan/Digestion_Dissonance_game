@@ -24,3 +24,11 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("Stand") and not player.crouch_checker.is_colliding():
 		player.Stand()
 		finished.emit(IDLE)
+	
+	if Input.is_action_pressed("Digest"):
+		finished.emit("Digest")
+		return
+	
+	if Input.is_action_just_pressed("Attack"):
+		finished.emit("Attack")
+		return

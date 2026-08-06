@@ -21,3 +21,11 @@ func physics_update(delta: float) -> void:
 	# Switch to Falling state once character starts downward trajectory
 	if player.velocity.y >= 0:
 		finished.emit("Fall")
+
+	if Input.is_action_just_pressed("Attack"):
+		finished.emit("Attack")
+		return
+	
+	if Input.is_action_pressed("Digest"):
+		finished.emit("Digest")
+		return
