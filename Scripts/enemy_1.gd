@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var orb_prefab = preload("res://Prefabs/orb.tscn")
-@onready var enemy_hitbox = $Marker2D/Hitbox
+@onready var enemy_hitbox = $Marker2D/Hurtbox
 @onready var health_bar = $health_bar
 var health : int = 30
 const SPEED = 200

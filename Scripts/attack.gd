@@ -18,7 +18,7 @@ func physics_update(delta: float) -> void:
 	# Return to movement once your attack timer turns the hitbox back off
 	if player.hurtbox_collision.disabled:
 		if player.is_jumping:
-			finished.emit("fall")
+			finished.emit("Fall")
 			return
 		elif player.is_crouching:
 			finished.emit("Crouch")
