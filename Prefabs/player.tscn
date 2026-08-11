@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ddt8nvk7mvl1p"]
 
 [ext_resource type="Script" uid="uid://k8abkjojfxc3" path="res://Scripts/player.gd" id="1_5wxv7"]
-[ext_resource type="Texture2D" uid="uid://ckr3e7otcemu2" path="res://Textures/Characters/Player-4.png.png" id="1_v0iea"]
 [ext_resource type="Shape2D" uid="uid://cggsglrrkcgyx" path="res://Shapes/Player_Shape.tres" id="3_2nftw"]
 [ext_resource type="Shape2D" uid="uid://b2ebsvciodom2" path="res://Shapes/crouch_play_shape.tres" id="4_knrd4"]
+[ext_resource type="Texture2D" uid="uid://dma6jkv7jg8yr" path="res://Textures/Characters/Player_Animations.png" id="4_wphcr"]
 [ext_resource type="Script" uid="uid://c3lftp7eknkeh" path="res://Scripts/hurtbox.gd" id="5_knrd4"]
 [ext_resource type="Script" uid="uid://dc4883vbgdvvn" path="res://Scripts/pickup_box.gd" id="6_hck1p"]
 [ext_resource type="Texture2D" uid="uid://cxg72lgwo34n4" path="res://Textures/UI/Health_Under.png" id="7_08u7w"]
@@ -58,6 +58,33 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_qvmbc"]
+resource_name = "crouch_attack"
+
+[sub_resource type="Animation" id="Animation_qjulh"]
+resource_name = "crouch_idle"
+
+[sub_resource type="Animation" id="Animation_evqxc"]
+resource_name = "crouch_walk"
+
+[sub_resource type="Animation" id="Animation_6gc6r"]
+resource_name = "death"
+
+[sub_resource type="Animation" id="Animation_vjsh3"]
+resource_name = "digest"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="Animation" id="Animation_wphcr"]
 resource_name = "fall"
 tracks/0/type = "value"
@@ -88,12 +115,33 @@ tracks/0/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_7c0pg"]
+resource_name = "jump_land"
+
+[sub_resource type="Animation" id="Animation_unxwf"]
+resource_name = "jump_rise"
+
+[sub_resource type="Animation" id="Animation_0u5bp"]
+resource_name = "jump_start"
+
+[sub_resource type="Animation" id="Animation_di5ps"]
+resource_name = "run"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_and0b"]
 _data = {
 &"RESET": SubResource("Animation_405c5"),
 &"attack": SubResource("Animation_and0b"),
+&"crouch_attack": SubResource("Animation_qvmbc"),
+&"crouch_idle": SubResource("Animation_qjulh"),
+&"crouch_walk": SubResource("Animation_evqxc"),
+&"death": SubResource("Animation_6gc6r"),
+&"digest": SubResource("Animation_vjsh3"),
 &"fall": SubResource("Animation_wphcr"),
-&"idle": SubResource("Animation_i3mxk")
+&"idle": SubResource("Animation_i3mxk"),
+&"jump_land": SubResource("Animation_7c0pg"),
+&"jump_rise": SubResource("Animation_unxwf"),
+&"jump_start": SubResource("Animation_0u5bp"),
+&"run": SubResource("Animation_di5ps")
 }
 
 [node name="player" type="CharacterBody2D" unique_id=379537739]
@@ -144,7 +192,9 @@ shape = SubResource("RectangleShape2D_2nftw")
 target_position = Vector2(-27.75, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1528750136]
-texture = ExtResource("1_v0iea")
+texture = ExtResource("4_wphcr")
+hframes = 12
+vframes = 8
 
 [node name="pickup_box" type="Area2D" parent="." unique_id=578209793]
 script = ExtResource("6_hck1p")
