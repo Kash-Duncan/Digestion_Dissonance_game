@@ -2,7 +2,7 @@ extends PlayerState
 
 func enter(_previous_state_path: String, data := {}) -> void:
 	player.velocity.x = 0.0
-	player.get_node("Sprite2D").texture = player.stand_texture
+	player.animation_player.play("idle")
 
 func physics_update(delta: float) -> void:
 	# Fall if we suddenly lose the floor beneath us

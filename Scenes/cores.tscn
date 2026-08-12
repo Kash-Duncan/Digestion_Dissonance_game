@@ -501,7 +501,7 @@ size = Vector2(40, 40)
 [node name="Parallax2D_Far" type="Parallax2D" parent="." unique_id=238122344]
 scroll_scale = Vector2(0.2, 0.1)
 scroll_offset = Vector2(0, 164)
-repeat_size = Vector2(960, 0)
+repeat_size = Vector2(960, 540)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far" unique_id=1148034874]
@@ -510,7 +510,7 @@ texture = ExtResource("1_q38ls")
 [node name="Parallax2D_Close" type="Parallax2D" parent="." unique_id=700483946]
 scroll_scale = Vector2(0.5, 0.25)
 scroll_offset = Vector2(0, 25)
-repeat_size = Vector2(960, 0)
+repeat_size = Vector2(960, 540)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Close" unique_id=2091269610]
@@ -531,7 +531,7 @@ tile_set = SubResource("TileSet_irsyi")
 visible = false
 scroll_scale = Vector2(0.9, 0.45)
 scroll_offset = Vector2(0, 62)
-repeat_size = Vector2(960, 0)
+repeat_size = Vector2(960, 540)
 repeat_times = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D_Front" unique_id=1270131110]

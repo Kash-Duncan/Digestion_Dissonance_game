@@ -15,3 +15,4 @@ func physics_update(delta: float) -> void:
 	player.move_and_slide()
 	if player.pickup_collision.disabled:
 		finished.emit("Idle")
+	

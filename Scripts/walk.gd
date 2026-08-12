@@ -1,7 +1,8 @@
 extends PlayerState
 
 func enter(_previous_state_path: String, data := {}) -> void:
-	player.get_node("Sprite2D").texture = player.stand_texture
+	if player.animation_player and player.animation_player.has_animation("run"):
+		player.animation_player.play("run")
 
 func physics_update(delta: float) -> void:
 	player.velocity += player.get_gravity() * delta

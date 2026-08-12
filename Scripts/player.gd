@@ -39,7 +39,8 @@ var start_position = Vector2(-607.0,-38.0)
 
 func _ready() -> void:
 	set_health()
-
+	if animation_player and animation_player.has_animation("idle"):
+		animation_player.play("idle")
 func _process(delta: float) -> void:
 	if health == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_scene.tscn")
@@ -50,8 +51,6 @@ func Stand():
 	is_crouching = false
 	Crouch_shape.disabled = true
 	Stand_shape.disabled = false
-	if get_node_or_null("Sprite2D"):
-		$Sprite2D.texture = stand_texture
 
 func Jump():
 	Stand()

@@ -2,6 +2,8 @@ extends PlayerState
 
 func enter(_previous_state_path: String, data := {}) -> void:
 	player.attack()
+	if player.animation_player and player.animation_player.has_animation("attack"):
+		player.animation_player.play("attack")
 
 func physics_update(delta: float) -> void:
 	var direction := Input.get_axis("Left", "Right")
@@ -18,11 +20,10 @@ func physics_update(delta: float) -> void:
 	# Return to movement once your attack timer turns the hitbox back off
 	if player.hurtbox_collision.disabled:
 		if player.is_jumping:
-			finished.emit("Fall")
-			return
+			finished.emit("Fall")	
 		elif player.is_crouching:
 			finished.emit("Crouch")
-			return
 		elif direction != 0 and player.is_on_floor():
 			finished.emit("Walk")
-			return
+		else:
+			finished.emit("Idle")

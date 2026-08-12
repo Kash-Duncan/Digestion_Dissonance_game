@@ -2,8 +2,15 @@ extends PlayerState
 
 func enter(_previous_state_path: String, data := {}) -> void:	
 	player.Jump()
+	if player.animation_player and player.animation_player.has_animation("jump_start"):
+		player.animation_player.play("jump_start")
+
 func physics_update(delta: float) -> void:
 	player.velocity += player.get_gravity() * delta
+
+	if player.velocity.y > 0:
+		if player.animation_player and player.animation_player.has_animation("jump_rise"):
+			player.animation_player.play("jump_rise")
 
 	var direction := Input.get_axis("Left", "Right")
 	if direction != 0:
