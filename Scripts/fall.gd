@@ -38,3 +38,7 @@ func physics_update(delta: float) -> void:
 			finished.emit("Walk")
 		else:
 			finished.emit("Idle")
+	
+	if Input.is_action_just_pressed("Attack"):
+		finished.emit("Attack")
+		return

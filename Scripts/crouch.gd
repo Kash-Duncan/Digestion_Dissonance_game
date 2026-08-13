@@ -4,8 +4,7 @@ extends PlayerState
 
 func enter(_previous_state_path: String, data := {}) -> void:
 	player.Crouch()
-	if player.animation_player and player.animation_player.has_animation("crouch_idle"):
-		player.animation_player.play("crouch_idle")
+	_play_crouch_animation("crouch_idle")
 
 func physics_update(delta: float) -> void:
 	player.velocity += player.get_gravity() * delta
@@ -17,9 +16,9 @@ func physics_update(delta: float) -> void:
 	if direction != 0:
 		player.get_node("Sprite2D").flip_h = (direction < 0)
 		player.get_node("Marker2D").scale.x = -1 if direction < 0 else 1
-		player.animation_player.play("crouch_walk")
+		_play_crouch_animation("crouch_walk")
 	else:
-		player.animation_player.play("crouch_idle")
+		_play_crouch_animation("crouch_idle")
 	
 	if Input.is_action_pressed("Jump"):
 		finished.emit("Dash")
@@ -36,3 +35,8 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("Attack"):
 		finished.emit("Attack")
 		return
+
+func _play_crouch_animation(anim_name: String) -> void:
+	if player.animation_player and player.animation_player.has_animation(anim_name):
+		if player.animation_player.current_animation != anim_name:
+			player.animation_player.play(anim_name)

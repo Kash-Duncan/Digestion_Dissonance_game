@@ -199,7 +199,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_unxwf"]
 resource_name = "jump_rise"
-length = 0.13333334
+length = 0.43333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -215,7 +215,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_0u5bp"]
 resource_name = "jump_start"
-length = 0.13333334
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

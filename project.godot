@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Digestion Dissonance"
-run/main_scene="uid://dcgymubfg3aet"
+run/main_scene="uid://dpngxtty0ytxm"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Textures/icon.svg"
 
