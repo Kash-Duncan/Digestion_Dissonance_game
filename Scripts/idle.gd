@@ -21,7 +21,7 @@ func physics_update(delta: float) -> void:
 		finished.emit("Crouch")
 		return
 		
-	if Input.is_action_just_pressed("Jump") and player.can_jump:
+	if Input.is_action_pressed("Jump") and player.can_jump:
 		if player.Disable_Jump_Timer.is_stopped() and player.jump_timer.is_stopped():
 			finished.emit("Jump")
 			return

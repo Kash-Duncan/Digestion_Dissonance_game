@@ -13,6 +13,10 @@ func physics_update(delta: float) -> void:
 	player.velocity.x = move_toward(player.velocity.x, target_speed, player.ground_accel * delta)
 	player.move_and_slide()
 	
+	if not player.is_on_floor():
+		finished.emit("Fall")
+		return
+	
 	if direction != 0:
 		player.get_node("Sprite2D").flip_h = (direction < 0)
 		player.get_node("Marker2D").scale.x = -1 if direction < 0 else 1

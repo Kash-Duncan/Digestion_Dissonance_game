@@ -11,9 +11,15 @@ func physics_update(delta: float) -> void:
 	player.velocity.x = move_toward(player.velocity.x, target_speed, player.ground_accel * delta)
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
+	else:
+		player.can_jump = true
 		
-	player.get_node("Sprite2D").flip_h = (direction < 0)
-	player.get_node("Marker2D").scale.x = -1 if direction < 0 else 1
+	if direction < 0:
+		player.get_node("Sprite2D").flip_h = true
+		player.get_node("Marker2D").scale.x = -1
+	if direction > 0:
+		player.get_node("Sprite2D").flip_h = false
+		player.get_node("Marker2D").scale.x = 1
 	
 	player.move_and_slide()
 	
@@ -24,6 +30,6 @@ func physics_update(delta: float) -> void:
 		elif player.is_crouching:
 			finished.emit("Crouch")
 		elif direction != 0 and player.is_on_floor():
-			finished.emit("Walk")
+			finished.emit("Walk")	
 		else:
 			finished.emit("Idle")

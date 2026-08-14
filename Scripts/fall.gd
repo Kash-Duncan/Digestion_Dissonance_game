@@ -2,9 +2,11 @@ extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	player.is_jumping = false
-	
 	if player.animation_player:
 		player.animation_player.play("fall")
+	
+	if _previous_state_path in ["Walk", "Idle", "Crouch"]:
+		player.coyote_timer.start()
 
 func physics_update(delta: float) -> void:
 	if player.velocity.y > -50:
@@ -28,7 +30,13 @@ func physics_update(delta: float) -> void:
 		player.Jump_cut()
 
 	player.move_and_slide()
-
+	
+	if Input.is_action_pressed("Jump") and player.can_jump:
+		if player.coyote_timer.time_left > 0 or player.is_on_floor():
+			player.coyote_timer.stop()
+			finished.emit("Jump")
+			return
+	
 	if player.is_on_floor():
 		player.can_jump = true
 		if Input.is_action_pressed("Crouch"):

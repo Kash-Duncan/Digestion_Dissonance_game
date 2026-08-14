@@ -16,6 +16,9 @@ class_name Player
 @onready var health_bar = $health_bar
 @onready var animation_player = $animation_player
 @onready var min_jump_timer = $min_jump_timer
+@onready var coyote_timer = %coyote_time
+
+
 
 @export var health : int = 100
 const orignal_speed = 300.0
@@ -41,6 +44,7 @@ func _ready() -> void:
 	set_health()
 	if animation_player and animation_player.has_animation("idle"):
 		animation_player.play("idle")
+
 func _process(delta: float) -> void:
 	if health == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_scene.tscn")

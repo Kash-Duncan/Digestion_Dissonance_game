@@ -496,7 +496,7 @@ script = ExtResource("1_3dryh")
 [node name="Parallax2D_Far" type="Parallax2D" parent="." unique_id=895148526]
 scroll_scale = Vector2(0.2, 0.2)
 scroll_offset = Vector2(0, 164)
-repeat_size = Vector2(960, 0)
+repeat_size = Vector2(960, 540)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Far" unique_id=196836223]
@@ -505,7 +505,7 @@ texture = ExtResource("9_h4fw4")
 [node name="Parallax2D_Close" type="Parallax2D" parent="." unique_id=1970151545]
 scroll_scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(0, 25)
-repeat_size = Vector2(960, 0)
+repeat_size = Vector2(960, 540)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D_Close" unique_id=1805329221]
@@ -630,7 +630,7 @@ text = "Digest: Shift"
 
 [node name="Parallax2D_Front" type="Parallax2D" parent="." unique_id=1768931070]
 scroll_scale = Vector2(0.9, 0.9)
-repeat_size = Vector2(960, 0)
+repeat_size = Vector2(960, 540)
 repeat_times = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D_Front" unique_id=231608510]
