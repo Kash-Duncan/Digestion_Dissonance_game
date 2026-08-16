@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://conm7jsji47jj" path="res://Textures/Frames/Foreground_layer3.png" id="5_8m3t6"]
 [ext_resource type="PackedScene" uid="uid://btspwddgpdodd" path="res://Prefabs/end_area.tscn" id="5_wowpa"]
 [ext_resource type="Texture2D" uid="uid://b7a2grrl6eebb" path="res://Textures/Frames/Foreground_layer4.png" id="6_ese38"]
-[ext_resource type="Script" uid="uid://7y8y764e5sw2" path="res://Scripts/ui.gd" id="6_i6g32"]
 [ext_resource type="Theme" uid="uid://ca8j5xhg8o6a5" path="res://Themes/Pixel_theme.tres" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://bblty8eo84oug" path="res://Prefabs/canvas_layer.tscn" id="7_mucmn"]
 [ext_resource type="Texture2D" uid="uid://t5ragujmwhm2" path="res://Textures/Frames/Foreground_layer5.png" id="7_oeip8"]
 [ext_resource type="Texture2D" uid="uid://dli7lg41v3ty8" path="res://Textures/Frames/Foreground_layer6.png" id="8_xe308"]
 [ext_resource type="Texture2D" uid="uid://cv2cw80dc1mxt" path="res://Textures/Frames/Foreground_layer7.png" id="9_d3cha"]
@@ -522,40 +522,7 @@ tile_set = SubResource("TileSet_ldgsr")
 [node name="end_area" parent="." unique_id=1815713352 instance=ExtResource("5_wowpa")]
 position = Vector2(1792, -40)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1206410273]
-script = ExtResource("6_i6g32")
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=401083581]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme = ExtResource("7_1l0tm")
-text = "Score: 0"
-
-[node name="Digestion_Timer" type="Label" parent="CanvasLayer" unique_id=111885980]
-offset_right = 40.0
-offset_bottom = 23.0
-theme = ExtResource("7_1l0tm")
-text = "Time: 0"
-
-[node name="Charge_time" type="Label" parent="CanvasLayer" unique_id=1498211504]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -33.0
-offset_right = 186.0
-grow_vertical = 0
-theme = ExtResource("7_1l0tm")
-text = "Charge: 0"
-
-[node name="digestion_timer" type="Timer" parent="CanvasLayer" unique_id=428346715]
-wait_time = 60.0
-one_shot = true
-autostart = true
+[node name="CanvasLayer" parent="." unique_id=618398852 instance=ExtResource("7_mucmn")]
 
 [node name="Crouch" type="Label" parent="." unique_id=1422684316]
 offset_left = -362.0
@@ -642,5 +609,3 @@ frame_progress = 0.28099206
 
 [node name="enemy" parent="." unique_id=1712363071 instance=ExtResource("30_mucmn")]
 position = Vector2(1240, -64)
-
-[connection signal="timeout" from="CanvasLayer/digestion_timer" to="." method="_on_digestion_timer_timeout"]

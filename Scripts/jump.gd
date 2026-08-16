@@ -8,7 +8,7 @@ func enter(_previous_state_path: String, data := {}) -> void:
 func physics_update(delta: float) -> void:
 	player.velocity += player.get_gravity() * delta
 
-	if player.velocity.y < 0:
+	if player.velocity.y < 0 :
 		if player.animation_player and player.animation_player.has_animation("jump_rise"):
 			player.animation_player.play("jump_rise")
 

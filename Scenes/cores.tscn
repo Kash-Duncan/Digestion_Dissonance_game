@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cwq44c7rujliu" path="res://Prefabs/enemy_1.tscn" id="26_irsyi"]
 [ext_resource type="Script" uid="uid://bn7l53koq1f10" path="res://Scripts/finshed_game_area.gd" id="27_6wnhq"]
 [ext_resource type="PackedScene" uid="uid://dc4vein42pjfr" path="res://Prefabs/enemy_core.tscn" id="28_a3a0k"]
+[ext_resource type="PackedScene" uid="uid://bblty8eo84oug" path="res://Prefabs/canvas_layer.tscn" id="29_23m7s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6l3h"]
 texture = ExtResource("3_4u6tg")
@@ -488,10 +489,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_irsyi"]
-vertices = PackedVector2Array(75.453125, -74, -82.64844, -74, -111.96875, -118, 113.953125, -118, -207.96094, -106, -212.09375, -106, -202.71875, -109.74219)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-408, -96, -391.90402, -95.999985, -376.1947, -95.99997, -347.50815, -95.999954, -314.7235, -95.999954, -272, -96, -248, -96, -224, -96, -204.75836, -95.999985, -160, -128, -136, -136, -88, -64, -68.838684, -64, -57.227448, -64, -40, -64, -20.344727, -64, 0, -64, 15.171936, -64, 28.832214, -64, 44.541504, -64, 59.56781, -64, 80, -64, 136, -128, 168, -128, 200, -96, 236.46826, -95.999985, 259.00775, -95.99997, 276.08307, -95.999954, 293.1584, -95.999954, 312.28278, -95.99997, 328, -96, 345.06744, -95.99997, 360, -96, 216, -96, 192, -128, 0, -128, -184, -128, -264, -96, -304, -96, -335.89697, -95.99997, -359.80237, -95.999985)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_23m7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wnhq"]
 size = Vector2(40, 40)
@@ -543,11 +541,11 @@ autoplay = "default"
 position = Vector2(-256, -80)
 
 [node name="enemy_1" parent="." unique_id=1149090841 instance=ExtResource("26_irsyi")]
-position = Vector2(-1584, 304)
+position = Vector2(664, -152)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=258832306]
-position = Vector2(-1568, 544)
-navigation_polygon = SubResource("NavigationPolygon_irsyi")
+position = Vector2(2272, -152)
+navigation_polygon = SubResource("NavigationPolygon_23m7s")
 
 [node name="finshed_game_area" type="Area2D" parent="." unique_id=850729058]
 position = Vector2(4840, -136)
@@ -567,5 +565,7 @@ position = Vector2(4208, 24)
 
 [node name="enemy_core2" parent="." unique_id=1884649436 instance=ExtResource("28_a3a0k")]
 position = Vector2(1800, -136)
+
+[node name="CanvasLayer" parent="." unique_id=618398852 instance=ExtResource("29_23m7s")]
 
 [connection signal="body_entered" from="finshed_game_area" to="finshed_game_area" method="_on_body_entered"]

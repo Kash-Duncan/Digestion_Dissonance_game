@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bblty8eo84oug"]
+
+[ext_resource type="Script" uid="uid://7y8y764e5sw2" path="res://Scripts/ui.gd" id="1_xhbi2"]
+[ext_resource type="Theme" uid="uid://ca8j5xhg8o6a5" path="res://Themes/Pixel_theme.tres" id="2_jgxne"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=618398852]
+script = ExtResource("1_xhbi2")
+
+[node name="Label" type="Label" parent="." unique_id=1655465342]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("2_jgxne")
+text = "Score: 0"
+
+[node name="Digestion_Timer" type="Label" parent="." unique_id=1240811076]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("2_jgxne")
+text = "Time: 0"
+
+[node name="Charge_time" type="Label" parent="." unique_id=281953947]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -33.0
+offset_right = 186.0
+grow_vertical = 0
+theme = ExtResource("2_jgxne")
+text = "Charge: 0"
+
+[node name="digestion_timer" type="Timer" parent="." unique_id=243355763]
+wait_time = 60.0
+one_shot = true
+autostart = true

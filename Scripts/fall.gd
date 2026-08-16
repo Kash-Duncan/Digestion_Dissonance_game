@@ -7,6 +7,8 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	
 	if _previous_state_path in ["Walk", "Idle", "Crouch"]:
 		player.coyote_timer.start()
+	else:
+		player.coyote_timer.stop()
 
 func physics_update(delta: float) -> void:
 	if player.velocity.y > -50:
