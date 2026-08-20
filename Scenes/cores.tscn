@@ -541,7 +541,7 @@ autoplay = "default"
 position = Vector2(-256, -80)
 
 [node name="enemy_1" parent="." unique_id=1149090841 instance=ExtResource("26_irsyi")]
-position = Vector2(664, -152)
+position = Vector2(608, -112)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=258832306]
 position = Vector2(2272, -152)
@@ -561,10 +561,7 @@ position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_6wnhq")
 
 [node name="enemy_core" parent="." unique_id=1352488564 instance=ExtResource("28_a3a0k")]
-position = Vector2(4208, 24)
-
-[node name="enemy_core2" parent="." unique_id=1884649436 instance=ExtResource("28_a3a0k")]
-position = Vector2(1800, -136)
+position = Vector2(4216, -24)
 
 [node name="CanvasLayer" parent="." unique_id=618398852 instance=ExtResource("29_23m7s")]
 

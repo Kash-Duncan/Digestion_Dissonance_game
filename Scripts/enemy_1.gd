@@ -8,6 +8,7 @@ const SPEED = 200
 const JUMP_VELOCITY = -400.0
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var player: CharacterBody2D = $"../player"
+@onready var animation_player = $AnimationPlayer
 
 
 func _ready() -> void:
@@ -31,6 +32,14 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED
 
 	move_and_slide()
+	
+	if velocity.x > 0:
+		if velocity.x > 100:
+			animation_player.play("Run")
+		else:
+			animation_player.play("Walk")
+	else:
+		animation_player.play("Idle")
 
 func set_health():
 	health_bar.max_value = health
