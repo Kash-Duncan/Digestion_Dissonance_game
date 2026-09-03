@@ -13,6 +13,7 @@ const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	set_health()
+	animation_player.play("Idle")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -31,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector2 = current_agent_postion.direction_to(next_path_position)
 	velocity = direction * SPEED
 
+	$Sprite2D.flip_h = (direction.x < 0)
+	$Marker2D.scale.x = -1 if direction.x < 0 else 1
+	
 	move_and_slide()
 	
 	if velocity.x > 0:

@@ -490,6 +490,9 @@ animations = [{
 }]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_23m7s"]
+vertices = PackedVector2Array(-1158.5313, 98, -938, 98, -938, 110, -1162, 110, -1238.5313, 122, -1162, 142, -1526, 142, -1465.6172, 122, -1526, 110, -1537.6328, 98, -1718, 110, -1718, 98)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 6, 8), PackedInt32Array(9, 7, 8), PackedInt32Array(9, 8, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1536, 152, -1152, 152, -1152, 120, -928, 120, -928, 88, -1160, 88, -1240, 112, -1464, 112, -1536, 88, -1728, 88, -1728, 120, -1536, 120)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wnhq"]
 size = Vector2(40, 40)
@@ -538,13 +541,13 @@ sprite_frames = SubResource("SpriteFrames_cjq7o")
 autoplay = "default"
 
 [node name="player" parent="." unique_id=379537739 instance=ExtResource("25_u6l3h")]
-position = Vector2(-256, -80)
+position = Vector2(472, -112)
 
 [node name="enemy_1" parent="." unique_id=1149090841 instance=ExtResource("26_irsyi")]
-position = Vector2(608, -112)
+position = Vector2(832, -53)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=258832306]
-position = Vector2(2272, -152)
+position = Vector2(2272, -144)
 navigation_polygon = SubResource("NavigationPolygon_23m7s")
 
 [node name="finshed_game_area" type="Area2D" parent="." unique_id=850729058]
