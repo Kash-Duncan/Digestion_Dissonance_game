@@ -490,9 +490,9 @@ animations = [{
 }]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_23m7s"]
-vertices = PackedVector2Array(-1158.5313, 98, -938, 98, -938, 110, -1162, 110, -1238.5313, 122, -1162, 142, -1526, 142, -1465.6172, 122, -1526, 110, -1537.6328, 98, -1718, 110, -1718, 98)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 6, 8), PackedInt32Array(9, 7, 8), PackedInt32Array(9, 8, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1536, 152, -1152, 152, -1152, 120, -928, 120, -928, 88, -1160, 88, -1240, 112, -1464, 112, -1536, 88, -1728, 88, -1728, 120, -1536, 120)])
+vertices = PackedVector2Array(2102, 262, 1738, 262, 1738, 250, 2102, 250, 1718, 230, 1674, 230, 1674, 218, 1718, 218, 2198, 230, 2122, 230, 2122, 218, 2198, 218, 1654, 198, 1642, 198, 1642, 186, 1654, 186, 2294, 198, 2218, 198, 2218, 186, 2294, 186, 1622, 166, 1610, 166, 1610, 154, 1622, 154, -2698, 134, -2742, 134, -2742, 122, -2698, 122, -2154, 134, -2390, 134, -2390, 122, -2154, 122, -1162, 134, -1526, 134, -1526, 122, -1162, 122, 118, 134, -118, 134, -118, 122, 118, 122, 2326, 134, 2314, 134, 2314, 122, 2326, 122, -2410, 102, -2678, 102, -2678, 90, -2410, 90, -1898, 102, -2134, 102, -2134, 90, -1898, 90, -1546, 102, -1718, 102, -1718, 90, -1546, 90, -938, 102, -1142, 102, -1142, 90, -938, 90, -138, 102, -310, 102, -310, 90, -138, 90, 214, 102, 138, 102, 138, 90, 214, 90, 1014, 102, 938, 102, 938, 90, 1014, 90, 1590, 102, 1546, 102, 1546, 90, 1590, 90, 2358, 102, 2346, 102, 2346, 90, 2358, 90, -1738, 70, -1878, 70, -1878, 58, -1738, 58, -330, 70, -918, 70, -918, 58, -330, 58, 310, 70, 234, 70, 234, 58, 310, 58, 918, 70, 906, 70, 906, 58, 918, 58, 1526, 70, 1034, 70, 1034, 58, 1526, 58, 2710, 70, 2378, 70, 2378, 58, 2710, 58, 374, 38, 330, 38, 330, 26, 374, 26, 406, 6, 394, 6, 394, -6, 406, -6, 886, 6, 874, 6, 874, -6, 886, -6, 470, -26, 426, -26, 426, -38, 470, -38, 502, -58, 490, -58, 490, -70, 502, -70, 854, -58, 842, -58, 842, -70, 854, -70, 534, -90, 522, -90, 522, -102, 534, -102, 566, -122, 554, -122, 554, -134, 566, -134, 822, -122, 810, -122, 810, -134, 822, -134, 630, -154, 586, -154, 586, -166, 630, -166, 662, -186, 650, -186, 650, -198, 662, -198, 790, -218, 682, -218, 682, -230, 790, -230)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(48, 49, 50, 51), PackedInt32Array(52, 53, 54, 55), PackedInt32Array(56, 57, 58, 59), PackedInt32Array(60, 61, 62, 63), PackedInt32Array(64, 65, 66, 67), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(72, 73, 74, 75), PackedInt32Array(76, 77, 78, 79), PackedInt32Array(80, 81, 82, 83), PackedInt32Array(84, 85, 86, 87), PackedInt32Array(88, 89, 90, 91), PackedInt32Array(92, 93, 94, 95), PackedInt32Array(96, 97, 98, 99), PackedInt32Array(100, 101, 102, 103), PackedInt32Array(104, 105, 106, 107), PackedInt32Array(108, 109, 110, 111), PackedInt32Array(112, 113, 114, 115), PackedInt32Array(116, 117, 118, 119), PackedInt32Array(120, 121, 122, 123), PackedInt32Array(124, 125, 126, 127), PackedInt32Array(128, 129, 130, 131), PackedInt32Array(132, 133, 134, 135), PackedInt32Array(136, 137, 138, 139), PackedInt32Array(140, 141, 142, 143), PackedInt32Array(144, 145, 146, 147), PackedInt32Array(148, 149, 150, 151)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1536, 80, -1728, 80, -1728, 112, -1536, 112), PackedVector2Array(-1152, 112, -1536, 112, -1536, 144, -1152, 144), PackedVector2Array(-1152, 80, -1152, 112, -928, 112, -928, 80), PackedVector2Array(-1728, 48, -1728, 80, -1888, 80, -1888, 48), PackedVector2Array(-928, 80, -928, 48, -320, 48, -320, 80), PackedVector2Array(-2144, 80, -1888, 80, -1888, 112, -2144, 112), PackedVector2Array(-2144, 112, -2144, 144, -2400, 144, -2400, 112), PackedVector2Array(-2400, 112, -2400, 80, -2688, 80, -2688, 112), PackedVector2Array(-2688, 112, -2688, 144, -2752, 144, -2752, 112), PackedVector2Array(-320, 112, -320, 80, -128, 80, -128, 112), PackedVector2Array(-128, 112, 128, 112, 128, 144, -128, 144), PackedVector2Array(128, 112, 128, 80, 224, 80, 224, 112), PackedVector2Array(224, 80, 224, 48, 320, 48, 320, 80), PackedVector2Array(320, 48, 320, 16, 384, 16, 384, 48), PackedVector2Array(384, 16, 384, -16, 416, -16, 416, 16), PackedVector2Array(416, -16, 416, -48, 480, -48, 480, -16), PackedVector2Array(480, -48, 480, -80, 512, -80, 512, -48), PackedVector2Array(512, -80, 512, -112, 544, -112, 544, -80), PackedVector2Array(544, -112, 544, -144, 576, -144, 576, -112), PackedVector2Array(576, -144, 576, -176, 640, -176, 640, -144), PackedVector2Array(640, -176, 640, -208, 672, -208, 672, -176), PackedVector2Array(672, -208, 672, -240, 800, -240, 800, -208), PackedVector2Array(800, -112, 800, -144, 832, -144, 832, -112), PackedVector2Array(832, -48, 832, -80, 864, -80, 864, -48), PackedVector2Array(864, 16, 864, -16, 896, -16, 896, 16), PackedVector2Array(896, 80, 896, 48, 928, 48, 928, 80), PackedVector2Array(928, 80, 1024, 80, 1024, 112, 928, 112), PackedVector2Array(1024, 80, 1024, 48, 1536, 48, 1536, 80), PackedVector2Array(1536, 112, 1536, 80, 1600, 80, 1600, 112), PackedVector2Array(1600, 176, 1600, 144, 1632, 144, 1632, 176), PackedVector2Array(1632, 208, 1632, 176, 1664, 176, 1664, 208), PackedVector2Array(1664, 240, 1664, 208, 1728, 208, 1728, 240), PackedVector2Array(1728, 272, 1728, 240, 2112, 240, 2112, 272), PackedVector2Array(2112, 240, 2112, 208, 2208, 208, 2208, 240), PackedVector2Array(2208, 208, 2208, 176, 2304, 176, 2304, 208), PackedVector2Array(2304, 144, 2304, 112, 2336, 112, 2336, 144), PackedVector2Array(2336, 112, 2336, 80, 2368, 80, 2368, 112), PackedVector2Array(2368, 80, 2368, 48, 2720, 48, 2720, 80)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wnhq"]
 size = Vector2(40, 40)
@@ -544,11 +544,211 @@ autoplay = "default"
 position = Vector2(472, -112)
 
 [node name="enemy_1" parent="." unique_id=1149090841 instance=ExtResource("26_irsyi")]
-position = Vector2(832, -53)
+position = Vector2(832, -48)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=258832306]
 position = Vector2(2272, -144)
 navigation_polygon = SubResource("NavigationPolygon_23m7s")
+
+[node name="NavigationLink2D" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1674422600]
+position = Vector2(-1608, 120)
+start_position = Vector2(96, 8)
+end_position = Vector2(56, -24)
+
+[node name="NavigationLink2D2" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1280955914]
+position = Vector2(-1752, 64)
+start_position = Vector2(48, 32)
+end_position = Vector2(8, 0)
+
+[node name="NavigationLink2D3" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=2014031428]
+position = Vector2(-1368, 80)
+start_position = Vector2(200, 48)
+end_position = Vector2(232, 16)
+
+[node name="NavigationLink2D4" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=457842564]
+position = Vector2(-1144, 48)
+start_position = Vector2(200, 48)
+end_position = Vector2(232, 16)
+
+[node name="NavigationLink2D5" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1158773208]
+position = Vector2(-568, 48)
+start_position = Vector2(264, 48)
+end_position = Vector2(232, 16)
+
+[node name="NavigationLink2D37" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=876077278]
+position = Vector2(-2104, 48)
+start_position = Vector2(200, 48)
+end_position = Vector2(232, 16)
+
+[node name="NavigationLink2D38" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1131212379]
+position = Vector2(-2360, 80)
+start_position = Vector2(200, 48)
+end_position = Vector2(232, 16)
+
+[node name="NavigationLink2D39" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1453658038]
+position = Vector2(-2584, 80)
+start_position = Vector2(200, 48)
+end_position = Vector2(168, 16)
+
+[node name="NavigationLink2D40" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=2032064107]
+position = Vector2(-2840, 80)
+start_position = Vector2(136, 48)
+end_position = Vector2(168, 16)
+
+[node name="NavigationLink2D6" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1813094272]
+position = Vector2(-376, 80)
+start_position = Vector2(264, 48)
+end_position = Vector2(232, 16)
+
+[node name="NavigationLink2D7" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=224179497]
+position = Vector2(-152, 80)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D8" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1985037161]
+position = Vector2(-56, 48)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D9" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=642313033]
+position = Vector2(40, 16)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D10" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1378329991]
+position = Vector2(104, -16)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D11" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1808204001]
+position = Vector2(136, -48)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D12" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=201440634]
+position = Vector2(200, -80)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D13" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1904511362]
+position = Vector2(232, -112)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D14" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1162968812]
+position = Vector2(264, -144)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D15" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=129610914]
+position = Vector2(296, -176)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D16" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1861699231]
+position = Vector2(360, -208)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D17" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=310188599]
+position = Vector2(392, -240)
+start_position = Vector2(264, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D23" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=310565966]
+position = Vector2(584, -16)
+start_position = Vector2(456, 80)
+end_position = Vector2(264, -48)
+
+[node name="NavigationLink2D42" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=483843966]
+position = Vector2(584, -16)
+start_position = Vector2(456, 80)
+end_position = Vector2(232, -112)
+
+[node name="NavigationLink2D41" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1457748388]
+position = Vector2(584, -16)
+start_position = Vector2(456, 80)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D22" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=788279331]
+position = Vector2(616, 48)
+start_position = Vector2(328, 48)
+end_position = Vector2(296, 16)
+
+[node name="NavigationLink2D25" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1675509267]
+position = Vector2(680, 48)
+start_position = Vector2(328, 48)
+end_position = Vector2(360, 16)
+
+[node name="NavigationLink2D26" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1889396856]
+position = Vector2(1160, 48)
+start_position = Vector2(392, 48)
+end_position = Vector2(360, 16)
+
+[node name="NavigationLink2D27" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=634621535]
+position = Vector2(1224, 80)
+start_position = Vector2(392, 80)
+end_position = Vector2(360, 16)
+
+[node name="NavigationLink2D28" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=286417606]
+position = Vector2(1256, 144)
+start_position = Vector2(392, 48)
+end_position = Vector2(360, 16)
+
+[node name="NavigationLink2D29" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1103662924]
+position = Vector2(1288, 176)
+start_position = Vector2(392, 48)
+end_position = Vector2(360, 16)
+
+[node name="NavigationLink2D30" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1291557458]
+position = Vector2(1288, 176)
+start_position = Vector2(456, 80)
+end_position = Vector2(424, 48)
+
+[node name="NavigationLink2D31" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1749808908]
+position = Vector2(1192, 112)
+start_position = Vector2(552, 144)
+end_position = Vector2(392, -16)
+
+[node name="NavigationLink2D32" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1564011887]
+position = Vector2(1544, 112)
+start_position = Vector2(552, 144)
+end_position = Vector2(584, 112)
+
+[node name="NavigationLink2D33" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=632318962]
+position = Vector2(1640, 80)
+start_position = Vector2(552, 144)
+end_position = Vector2(584, 112)
+
+[node name="NavigationLink2D34" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=1870053419]
+position = Vector2(1768, -16)
+start_position = Vector2(552, 144)
+end_position = Vector2(584, 112)
+
+[node name="NavigationLink2D44" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=910944417]
+position = Vector2(1768, -16)
+start_position = Vector2(552, 144)
+end_position = Vector2(584, 112)
+
+[node name="NavigationLink2D43" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=807340220]
+position = Vector2(1736, 16)
+start_position = Vector2(512, 176)
+end_position = Vector2(648, 48)
+
+[node name="NavigationLink2D35" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=487850479]
+position = Vector2(1800, -56)
+start_position = Vector2(464, 168)
+end_position = Vector2(584, 112)
+
+[node name="NavigationLink2D36" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=927162047]
+position = Vector2(552, -144)
+start_position = Vector2(232, -80)
+end_position = Vector2(488, 208)
+
+[node name="NavigationLink2D24" type="NavigationLink2D" parent="NavigationRegion2D" unique_id=16317600]
+position = Vector2(680, 144)
+start_position = Vector2(232, -80)
+end_position = Vector2(360, -80)
 
 [node name="finshed_game_area" type="Area2D" parent="." unique_id=850729058]
 position = Vector2(4840, -136)
@@ -567,5 +767,14 @@ shape = SubResource("RectangleShape2D_6wnhq")
 position = Vector2(4216, -24)
 
 [node name="CanvasLayer" parent="." unique_id=618398852 instance=ExtResource("29_23m7s")]
+
+[node name="enemy_2" parent="." unique_id=148822394 instance=ExtResource("26_irsyi")]
+position = Vector2(2272, -56)
+
+[node name="enemy_3" parent="." unique_id=1721477139 instance=ExtResource("26_irsyi")]
+position = Vector2(3536, -136)
+
+[node name="enemy_4" parent="." unique_id=1694914378 instance=ExtResource("26_irsyi")]
+position = Vector2(4696, -128)
 
 [connection signal="body_entered" from="finshed_game_area" to="finshed_game_area" method="_on_body_entered"]
