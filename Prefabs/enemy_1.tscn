@@ -92,6 +92,9 @@ _data = {
 &"Walk": SubResource("Animation_a3nkp")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_70g80"]
+radius = 552.058
+
 [node name="enemy_1" type="CharacterBody2D" unique_id=148822394]
 script = ExtResource("1_u6jur")
 
@@ -136,5 +139,13 @@ target_desired_distance = 32.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=253407632]
 libraries/ = SubResource("AnimationLibrary_7tpe6")
 
+[node name="detection_range" type="Area2D" parent="." unique_id=1610673733]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range" unique_id=1615339741]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_70g80")
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Marker2D/Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="detection_range" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="detection_range" to="." method="_on_detection_range_body_exited"]

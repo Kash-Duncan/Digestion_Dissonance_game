@@ -44,12 +44,15 @@ func _ready() -> void:
 	set_health()
 	if animation_player and animation_player.has_animation("idle"):
 		animation_player.play("idle")
+	
+	Event_Bus.orb_health_up.connect(update_health)
 
 func _process(delta: float) -> void:
 	if health == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_scene.tscn")
 	if "Event_Bus" in self:
 		Event_Bus._charge_time = charge_time
+	print(health)
 
 func Stand():
 	is_crouching = false
@@ -122,9 +125,15 @@ func execute_dash(delta: float):
 func _on_jump_timer_timeout() -> void:
 	can_jump = false
 	Jump_cut()
-func _on_gravity_cancel_timer_timeout() -> void: SPEED = orignal_speed
-func _on_attack_timer_timeout() -> void: hurtbox_collision.disabled = true
-func _on_pickup_timer_timeout() -> void: pickup_collision.disabled = true
+func _on_gravity_cancel_timer_timeout() -> void: 
+	SPEED = orignal_speed
+
+func _on_attack_timer_timeout() -> void: 
+	hurtbox_collision.disabled = true
+
+func _on_pickup_timer_timeout() -> void: 
+	pickup_collision.disabled = true
+
 func set_health():
 	health_bar.max_value = health
 	health_bar.value = health

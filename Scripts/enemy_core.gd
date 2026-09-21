@@ -6,6 +6,7 @@ var health : int = 30
 
 
 func _ready() -> void:
+	$AnimatedSprite2D.play("default")
 	set_health()
 
 func set_health():
@@ -21,6 +22,7 @@ func update_health(Amount: int):
 
 func destroy_core():
 	Event_Bus.core_destroyed.emit(1)
+	Event_Bus.enemy_killed.emit(5)
 	queue_free()
 
 func _on_hitbox_area_entered(area: Area2D) -> void:

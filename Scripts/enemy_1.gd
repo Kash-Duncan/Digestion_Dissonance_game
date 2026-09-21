@@ -25,23 +25,24 @@ func _physics_process(delta: float) -> void:
 	
 	nav_agent.target_position = player.global_position
 	var next_path_position: Vector2 = nav_agent.get_next_path_position()
-	if not nav_agent.is_navigation_finished():
-		var dir_x: float = sign(next_path_position.x - global_position.x)
+	if player_in_range == true:
+		if not nav_agent.is_navigation_finished():
+			var dir_x: float = sign(next_path_position.x - global_position.x)
+			
+			velocity.x = dir_x * SPEED
+			if is_on_floor():
+				var height_difference: float = global_position.y - next_path_position.y
+				if height_difference > 16:
+					velocity.y = JUMP_VELOCITY
+				elif is_on_wall() and height_difference >= 0:
+					velocity.y = JUMP_VELOCITY
 		
-		velocity.x = dir_x * SPEED
-		if is_on_floor():
-			var height_difference: float = global_position.y - next_path_position.y
-			if height_difference > 16:
-				velocity.y = JUMP_VELOCITY
-			elif is_on_wall() and height_difference >= 0:
-				velocity.y = JUMP_VELOCITY
-		
-		if dir_x != 0:
-			$Sprite2D.flip_h = (dir_x < 0)
-			$Marker2D.scale.x = -1 if dir_x < 0 else 1
-	else:
-		if is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			if dir_x != 0:
+				$Sprite2D.flip_h = (dir_x < 0)
+				$Marker2D.scale.x = -1 if dir_x < 0 else 1
+		else:
+			if is_on_floor():
+				velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	var current_agent_postion: Vector2 = global_position
 	
@@ -65,6 +66,7 @@ func update_health(Amount: int):
 	
 	if health <= 0:
 		queue_free()
+		enemy_killed()
 
 func enemy_killed():
 	var orb = orb_prefab.instantiate()
@@ -80,3 +82,12 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "hurtbox":
 		update_health(-10)
+
+var player_in_range = false
+func _on_detection_range_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		player_in_range = true
+
+func _on_detection_range_body_exited(body: Node2D) -> void:
+	if body.name == "player":
+		player_in_range = false

@@ -9,3 +9,5 @@ signal enemy_killed(score)
 signal orb_digested(score)
 
 signal core_destroyed(core)
+
+signal orb_health_up(health)
